@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "${get_path_to_repo_root()}//modules/site-mesh-group"
+  source = "github.com/mjmenger/terraform-f5xc-site-mesh-group.git"
 }
 
 inputs = {}
