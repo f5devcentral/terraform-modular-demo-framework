@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "${get_path_to_repo_root()}//modules/aws-vpc-site"
+  source = "github.com/mjmenger/terraform-f5xc-aws-vpc-site.git?ref=v0.0.1"
 }
 
 dependencies {
