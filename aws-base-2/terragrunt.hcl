@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "${get_path_to_repo_root()}//modules/base-aws-network"
+  source = "github.com/mjmenger/terraform-f5xc-aws-base.git?ref=v0.0.1"
 }
 
 inputs = {
