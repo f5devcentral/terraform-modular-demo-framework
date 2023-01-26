@@ -1,0 +1,34 @@
+terraform {
+    extra_arguments "volterra" {
+        commands = ["apply","plan","destroy"]
+        arguments = []
+        env_vars = {
+            VOLT_API_URL      = "https://f5-sa.console.ves.volterra.io/api"
+            VOLT_API_TIMEOUT  = "60s"
+            VOLT_API_P12_FILE = "/path/to/your/console.p12"
+            VES_P12_PASSWORD  = "p12password" 
+            VOLTERRA_TOKEN    = "XCAPITOKEN" 
+        }
+    }
+}
+
+inputs = {
+    projectPrefix          = "prefixforassets"
+    namespace              = "your-namespace"
+    trusted_ip             = "1.1.1.1/32"
+    volterraTenant         = "f5-sa"
+    volterraCloudCredAWS   = "nameofawscredstouse"
+    volterraCloudCredAzure = "nameofazurecredstouse"
+    awsRegion              = "us-east-2"
+    awsRegion2             = "us-west-2"
+    azureRegion            = "westus2"
+    azureRegion2           = "eastus"
+    ssh_key                = "nameofawsec2keypairtouse"
+    ssh_public_key         = "publickeycontent"
+    auto_trust_localip     = true
+    f5xc_api_url           = "https://f5-sa.console.ves.volterra.io/api"
+    f5xc_api_token         = "XCAPITOKEN"
+    f5xc_tenant            = "f5-sa"
+    f5xc_namespace         = "your-namespace"
+    f5xc_aws_cred          = "nameofawscredstouse"
+}
