@@ -70,7 +70,7 @@ resource "volterra_cloud_site_labels" "labels" {
   name             = volterra_aws_vpc_site.example.name
   site_type        = "aws_vpc_site"
   # need at least one label, otherwise site_type is ignored
-  labels           = { "site-group" = "tgt" }
+  labels           = { "site-group" = var.projectPrefix }
   #ignore_on_delete = var.f5xc_cloud_site_labels_ignore_on_delete
 }
 
