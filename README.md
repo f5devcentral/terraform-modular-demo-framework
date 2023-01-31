@@ -31,7 +31,17 @@ sequenceDiagram
   AWS Provider-->>AWS: AWS API calls
   AWS-->>AWS Provider: Complete
   AWS Provider-->>Terraform: Complete
-
+  Terraform-->>Terragrunt: Complete
+  loop Variablesetup
+    Terragrunt-->>Terragrunt: ENV and TFvars
+    Terragrunt-->>Terragrunt: retrieve module source
+  end
+  Terragrunt-->>Terraform: Init and Apply
+  Terraform-->>F5XC Provider: Here's a resource declaration
+  F5XC Provider-->>F5XC: F5XC API calls
+  F5XC-->>F5XC Provider: Complete
+  F5XC Provider-->>Terraform: Complete
+  Terraform-->>Terragrunt: Complete
 
 ```
 
