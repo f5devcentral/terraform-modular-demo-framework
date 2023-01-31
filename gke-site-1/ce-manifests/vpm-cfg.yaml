@@ -1,0 +1,20 @@
+apiVersion: v1 
+kind: ConfigMap 
+metadata:
+  name: vpm-cfg
+  namespace: ves-system
+data: 
+ config.yaml: | 
+  Vpm:
+    ClusterName: ${clustername}
+    ClusterType: ce
+    Config: /etc/vpm/config.yaml
+    DisableModules: ["dictator", "recruiter"]
+    Latitude: ${latitude}
+    Longitude: ${longitude}
+    MauriceEndpoint: https://register.ves.volterra.io
+    MauricePrivateEndpoint: https://register-tls.ves.volterra.io
+    PrivateNIC: eth0
+    SkipStages: ["osSetup", "etcd", "kubelet", "master", "voucher", "workload", "controlWorkload"]
+    Token: ${xc_sitetoken}
+    CertifiedHardware: k8s-minikube-voltmesh

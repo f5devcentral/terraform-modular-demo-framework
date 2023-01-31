@@ -1,0 +1,111 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0
+  namespace: ves-system
+spec:
+  capacity:
+   storage: 10Gi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+  storageClassName: standard
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv1
+  namespace: ves-system
+spec:
+  capacity:
+   storage: 10Gi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+  storageClassName: standard
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv2
+  namespace: ves-system
+spec:
+  capacity:
+   storage: 10Gi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+  storageClassName: standard  
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv3
+  namespace: ves-system
+spec:
+  capacity:
+   storage: 10Gi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+  storageClassName: standard    
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv4
+  namespace: ves-system
+spec:
+  capacity:
+   storage: 10Gi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+  storageClassName: standard     
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv5
+  namespace: ves-system
+spec:
+  capacity:
+   storage: 10Gi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+  storageClassName: standard  
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv6
+  namespace: ves-system
+spec:
+  capacity:
+   storage: 10Gi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+  storageClassName: standard  
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv7
+  namespace: ves-system
+spec:
+  capacity:
+   storage: 10Gi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+  storageClassName: standard 

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: volterra-ce-init 
+  namespace: ves-system
+spec:
+  selector:
+    matchLabels:
+      name: volterra-ce-init
+  template:
+    metadata:
+      labels:
+        name: volterra-ce-init 
+    spec:
+      hostNetwork: true
+      hostPID: true
+      serviceAccountName: volterra-sa
+      containers:
+      - name: volterra-ce-init
+        image: gcr.io/volterraio/volterra-ce-init
+        volumeMounts:
+        - name: hostroot 
+          mountPath: /host
+        securityContext:
+          privileged: true
+      volumes:
+      - name: hostroot
+        hostPath:
+          path: /
