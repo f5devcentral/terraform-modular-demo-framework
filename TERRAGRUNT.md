@@ -4,6 +4,9 @@
 ## Install Terragrunt
 The [documentation](https://terragrunt.gruntwork.io/docs/getting-started/install/) is the best place to start.
 
+## Install jq
+Follow [the documentation](https://stedolan.github.io/jq/download/) to install jq
+
 ## Edit the root terragrunt.hcl
 - copy terragrunt.hcl.example to terragrunt.hcl
 - move terragrunt.hcl up one directory to get it out of the source control path (```mv terragrunt.hcl ../```)
