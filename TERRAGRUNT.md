@@ -7,6 +7,10 @@ The [documentation](https://terragrunt.gruntwork.io/docs/getting-started/install
 ## Install jq
 Follow [the documentation](https://stedolan.github.io/jq/download/) to install jq
 
+## Install kubectl
+because you may need to interact with a cluster, please follow [the instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
+
+
 ## Edit the root terragrunt.hcl
 - copy terragrunt.hcl.example to terragrunt.hcl
 - move terragrunt.hcl up one directory to get it out of the source control path (```mv terragrunt.hcl ../```)
