@@ -17,7 +17,7 @@ terraform {
         arguments = []
         env_vars = {
             VES_P12_PASSWORD  = "secret"
-            VOLT_API_URL      = "https://tenant.console.ves.volterra.io/api"
+            VOLT_API_URL      = "https://f5-gsa.console.ves.volterra.io/api"
             VOLT_API_TIMEOUT  = "60s"
             VOLT_API_P12_FILE = "/path/to/my.p12"
             VOLTERRA_TOKEN    = "API Token"
@@ -27,7 +27,7 @@ terraform {
 }
 
 inputs = {
-    projectPrefix          = "menger"
+    projectPrefix          = "pki-voltsites"
     namespace              = "m-menger"
     trusted_ip             = "192.0.10.1/32"
     volterraTenant         = "tenant"

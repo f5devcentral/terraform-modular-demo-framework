@@ -2,6 +2,7 @@
 *tfstate*
 *.bak
 *.json
+*.http
 
 # Local .terraform directories
 **/.terraform/*

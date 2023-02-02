@@ -23,4 +23,3 @@ inputs = {
   resourceGroup  = dependency.infrastructure.outputs.resourceGroup
   hubVnetName    = dependency.infrastructure.outputs.hubVnetName
 }
-

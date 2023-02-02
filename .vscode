@@ -1,0 +1,8 @@
+{
+    "rest-client.certificates": {
+        "f5-gsa.console.ves.volterra.io": {
+            "pfx": "/full/path/to/your/p12file",
+            "passphrase": "passphraseforyourp12file"
+        }
+    }
+}
