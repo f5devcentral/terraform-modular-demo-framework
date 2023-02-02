@@ -3,6 +3,7 @@
 *.bak
 *.json
 *.http
+*.p12
 
 # Local .terraform directories
 **/.terraform/*
