@@ -42,3 +42,4 @@ override.tf.json
 **/.terragrunt-cache/*
 
 **/.vscode/*
+waitfornext/garbage.txt
