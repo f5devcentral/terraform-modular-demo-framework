@@ -53,6 +53,28 @@ inputs = {
 ```
 you should be able to leave the ```terragrunt.hcl``` files in the subdirectories as-is.
 
+## Credential consistency
+The F5 Distributed Cloud workflow for creating cloud sites performs cloud platform configuration using the cloud credentials stored on the F5 Distributed Cloud control plane. If the Terraform running on your workstation is using credentials for a different account or subscription than the specified cloud credentials, you will encounter build failures during the apply of the tf_params_action resource.
+
+### Check Azure credential consistency
+TBD
+```bash
+az account list --all | jq '.[]|select(.isDefault==true)|.id'
+```
+- log into the F5 Distributed Cloud console
+- search for 'Cloud Credentials'
+- expand the credentials you plan to use, clicking the chevron to the left of the credential name.
+- look at the JSON for the Azure cloud credential you plan to use. 
+- expand object->spec->gc_spec->azure_client_secret->subscription_id
+- compare the two subscription ids
+
+If the two values match, you're prepared to run Terragrunt/Terraform
+
+### Check AWS credential consistency
+TBD
+### Check GCP credential consistency
+TBD
+
 ## Run Terragrunt
 Review the dependencies interpreted by Terragrunt
 ```shell
