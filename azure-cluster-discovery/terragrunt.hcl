@@ -3,6 +3,7 @@ include "root" {
 }
 
 terraform {
+  source = "github.com/mjmenger/terraform-f5xc-azure-discovered-cluster.git?ref=v0.0.1"
   before_hook "pre-check" {
       commands = ["apply","plan"]
       execute  = ["./pre-check.sh"]
