@@ -9,4 +9,8 @@ use this command with the [Azure CLI](https://learn.microsoft.com/en-us/cli/azur
 az vm image accept-terms --offer entcloud_voltmesh_voltstack_node --publisher volterraedgeservices --plan freeplan_entcloud_voltmesh_voltstack_node_multinic
 ```
 ### tf_params_action "unable to find ... " error
-In the case of an error during the tf_params_action, the credentials used by Terraform on the workstation are likely for a different account/subscription than the F5 Distributed Cloud Cloud Credentials used.
+In the case of an error during the tf_params_action, the credentials used by Terraform on the workstation are likely for a different account/subscription than the F5 Distributed Cloud Cloud Credentials used. Verify which accounts/subscriptions the credentials are for, and adjust the credentials accordingly.
+
+
+### changed password
+if `az login` is used to provide authentication for the Terraform Azurerm provider, if the password for the Azure account is changed, any previous authentication token is invalid and `az login` must be used again to avoid authentication errors when the Azurerm provider tries to authenticate.
