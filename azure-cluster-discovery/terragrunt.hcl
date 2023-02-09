@@ -12,15 +12,15 @@ terraform {
 
 
 dependencies {
-  paths = ["../azure-base-1","../azure-site-1"]
+  paths = ["../azure-base-2","../azure-site-2"]
 }
 
 dependency "infrastructure" {
-  config_path = "../azure-base-1"
+  config_path = "../azure-base-2"
 }
 
 dependency "xc_site" {
-  config_path = "../azure-site-1"
+  config_path = "../azure-site-2"
 }
 
 inputs = {
