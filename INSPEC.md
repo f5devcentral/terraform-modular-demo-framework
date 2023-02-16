@@ -1,6 +1,7 @@
 
 ## Install Inspec
 Follow [the directions](https://docs.chef.io/inspec/install/)
+note: all of the tests below were performed with Inspec 5.21.29
 
 ## Set the input parameters
 create a file named `params.yaml` with the following content, adjusted as appropriate for your environment
