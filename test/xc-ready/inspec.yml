@@ -1,0 +1,32 @@
+name: xc-ready
+title: InSpec Profile
+maintainer: The Authors
+copyright: The Authors
+copyright_email: you@example.com
+license: Apache-2.0
+summary: An InSpec Compliance Profile
+version: 0.1.0
+supports:
+  platform: os
+inputs:
+  - name: xc_tenant
+    description: name of the XC tenant to test
+    required: true
+  - name: xc_token
+    description: XC API token for the tenant
+    required: true
+  - name: xc_site_type
+    description: site type for XC Site to test
+    required: true
+  - name: xc_site_name
+    description: name of XC Site to test
+    required: true
+  - name: xc_service_discovery
+    description: name of XC Site to test
+    required: true    
+  - name: xc_aws_site_name
+    description: name of XC Site to test
+    required: false
+  - name: xc_azure_site_name
+    description: name of XC Site to test
+    required: false        
