@@ -2,8 +2,7 @@
 [Install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli). Or, for greater flexibility in managing the version of Terraform you're using, you may consider using [tfenv](https://github.com/tfutils/tfenv)
 
 ## Install Terragrunt
-The [documentation](https://terragrunt.gruntwork.io/docs/getting-started/install/) is the best place to start.
-
+The [documentation](https://terragrunt.gruntwork.io/docs/getting-started/install/) is the best place to start. You might also consider `tgenv` for ease of managing Terragrunt versions. There appears to be a [bash](https://github.com/cunymatthieu/tgenv) and [python](https://pypi.org/project/tgenv/) variant of `tgenv`.
 ## Install jq
 Follow [the documentation](https://stedolan.github.io/jq/download/) to install jq
 
