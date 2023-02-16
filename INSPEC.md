@@ -17,7 +17,7 @@ xc_azure_site_name: sitename
 ## Are they there and working?
 the following command will test if the resources are deployed
 ```bash
-inspec exec test/xc-ready --input-file=params.yaml --controls=aws-site-online azure-site-online discovery-publishing
+inspec exec test/xc-ready --input-file=params.yaml --tags=up
 ```
 a successful result will look like
 ```bash
@@ -99,7 +99,7 @@ Test Summary: 0 successful, 6 failures, 0 skipped
 ## Are they disposed of as expected?
 the following command will test that the resources appear to be removed from the XC console
 ```bash
-inspec exec test/xc-ready --input-file=params.yaml --controls=aws-site-does-not-exist azure-site-does-not-exist discovery-does-not-exists
+inspec exec test/xc-ready --input-file=params.yaml --tags=down
 ```
 
 a successful result will look like
