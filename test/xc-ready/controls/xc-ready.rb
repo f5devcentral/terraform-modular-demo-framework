@@ -16,6 +16,7 @@ control "aws-site-online" do
   impact 0.5
   title "XC Site is ONLINE"
   desc "check that the status of the specified XC Site is ONLINE"
+  tag 'up'
   http_response = http("#{XC_API_URL}/config/namespaces/system/aws_vpc_sites/#{XC_SITE_NAME}", 
                         headers: {'Authorization' => "APIToken #{XC_TOKEN}"}, method: 'GET', ssl_verify: false )
   describe http_response do
@@ -31,6 +32,7 @@ control "aws-site-does-not-exist" do
   impact 0.5
   title "XC Site does not exist"
   desc "check that the site does not exist"
+  tag 'down'
   http_response = http("#{XC_API_URL}/config/namespaces/system/aws_vpc_sites/#{XC_SITE_NAME}", 
                         headers: {'Authorization' => "APIToken #{XC_TOKEN}"}, method: 'GET', ssl_verify: false )
   describe http_response do
@@ -42,6 +44,7 @@ control "azure-site-online" do
   impact 0.5
   title "Azure XC Site is ONLINE"
   desc "check that the status of the specified XC Site is ONLINE"
+  tag 'up'
   http_response = http("#{XC_API_URL}/config/namespaces/system/azure_vnet_sites/#{XC_AZURE_SITE_NAME}", 
                         headers: {'Authorization' => "APIToken #{XC_TOKEN}"}, method: 'GET', ssl_verify: false )
   describe http_response do
@@ -57,6 +60,7 @@ control "azure-site-does-not-exist" do
   impact 0.5
   title "Azure XC Site does not exist"
   desc "check that the site does not exist"
+  tag 'down'
   http_response = http("#{XC_API_URL}/config/namespaces/system/azure_vnet_sites/#{XC_AZURE_SITE_NAME}", 
                         headers: {'Authorization' => "APIToken #{XC_TOKEN}"}, method: 'GET', ssl_verify: false )
   describe http_response do
@@ -69,6 +73,7 @@ control "discovery-publishing" do
   impact 0.5
   title "XC Service Discovery is publishing"
   desc "check that the discovery is publishing"
+  tag 'up'
   http_response = http("#{XC_API_URL}/config/namespaces/system/discoverys/#{XC_SERVICE_DISCOVERY}", 
                         headers: {'Authorization' => "APIToken #{XC_TOKEN}"}, method: 'GET', ssl_verify: false )
   describe http_response do
@@ -79,10 +84,11 @@ control "discovery-publishing" do
   end  
 end
 
-control "discovery-does-not-exists" do
+control "discovery-does-not-exist" do
   impact 0.5
   title "XC Service Discovery does not exist"
   desc "check that the discovery does not exist"
+  tag 'down'
   http_response = http("#{XC_API_URL}/config/namespaces/system/discoverys/#{XC_SERVICE_DISCOVERY}", 
                         headers: {'Authorization' => "APIToken #{XC_TOKEN}"}, method: 'GET', ssl_verify: false )
   describe http_response do
