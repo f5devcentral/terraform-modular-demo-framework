@@ -42,3 +42,4 @@ override.tf.json
 **/.vscode/*
 waitfornext/garbage.txt
 terragrunt.hcl*
+params.yaml
