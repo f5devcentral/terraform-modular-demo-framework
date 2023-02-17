@@ -24,7 +24,7 @@ dependency "xc_site" {
 }
 
 inputs = {
-  instanceSuffix        = "1"
+  instanceSuffix        = "2"
   site_type             = dependency.xc_site.outputs.site_type
   site_name             = dependency.xc_site.outputs.site_name
   azureRegion           = dependency.infrastructure.outputs.azureRegion
