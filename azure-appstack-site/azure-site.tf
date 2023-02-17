@@ -1,7 +1,7 @@
 ############################ Volterra Azure VNet Sites ############################
 
 resource "volterra_azure_vnet_site" "azure-site" {
-  name           = format("%s-azure-%s", var.projectPrefix, var.instanceSuffix)
+  name           = format("%s-azureappstack-%s", var.projectPrefix, var.instanceSuffix)
   namespace      = "system"
   azure_region   = var.azureRegion
   resource_group = "${var.resourceGroup}-site"
@@ -17,7 +17,7 @@ resource "volterra_azure_vnet_site" "azure-site" {
     namespace = "system"
   }
 
-voltstack_cluster {
+  voltstack_cluster {
   
     azure_certified_hw = "azure-byol-voltstack-combo"
 
