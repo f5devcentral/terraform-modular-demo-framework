@@ -43,3 +43,18 @@ In terragrunt.hcl file (of the module causing the error)
 test.sh script file (in the same directory as the module causing the error)
 #!/bin/bash
 printenv | sort
+
+
+### status code 409 Another site with that name already exists
+│ Error: error creating AwsVpcSite: Creating object: Unsuccessful POST at URL https://f5-sa.console.ves.volterra.io/api/public/namespaces/system/aws_vpc_sites, status code 409, body {"code":6,"details":[{"type_url":"type.googleapis.com/ves.io.stdlib.server.error.Error","value":"�CreateResource: Failed transaction handling aws_vpc_site: STM Error, PreDBUndo Error: %!s(\u003cnil\u003e): Applying transaction function: Another site with that name already exists;2023-02-17 19:29:03.174821013 +0000 UTC m=+118054.380740479"}],"message":"Another site with that name already exists"}, err %!s(<nil>)
+│ 
+│   with volterra_aws_vpc_site.example,
+│   on vpc-site.tf line 1, in resource "volterra_aws_vpc_site" "example":
+│    1: resource "volterra_aws_vpc_site" "example" {
+│ 
+╵
+ERRO[0018] Terraform invocation failed in /home/mjmenger/expensive.food/aws-vpc-site-1/.terragrunt-cache/2ATXA7pHfCmxvR7opOIAFtJ9jT8/YFl5GlvBUt5PatEAnxvY7abuGtI  prefix=[/home/mjmenger/expensive.food/aws-vpc-site-1] 
+ERRO[0018] 1 error occurred:
+        * exit status 1
+
+This may occur after Terraform/Terragrunt reports a successful destroy. You may have to manually delete the site using the XC console. The root cause of this behavior is unknown.
