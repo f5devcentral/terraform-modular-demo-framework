@@ -2,6 +2,10 @@ include "root" {
   path = find_in_parent_folders()
 }
 
+terraform {
+  source = "github.com/piyerf5/terraform-f5xc-azure-appstack-site.git"
+}
+
 dependencies {
   paths = ["${get_path_to_repo_root()}//azure-base-1"]
 }
@@ -19,4 +23,3 @@ inputs = {
   resourceGroup  = dependency.infrastructure.outputs.resourceGroup
   hubVnetName    = dependency.infrastructure.outputs.hubVnetName
 }
-
