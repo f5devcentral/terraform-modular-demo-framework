@@ -17,6 +17,8 @@ When requesting new feature, please try to describe the behavior the solution wo
 ### Code 
 #### Standards
 We should have, but don't currently have, standards for intermodule communications (variables and outputs).
+##### semantic versioning
+No module or orchestration should be tagged with v1.x until there is collective agreement that it is ready to be promoted to the community repository.
 #### Refactoring the main repository
 at a minimum work from a feature branch.
 if you're working on something that doesn't have an associated issue, please create the issue first.
