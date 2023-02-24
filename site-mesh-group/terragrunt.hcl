@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "github.com/mjmenger/terraform-f5xc-site-mesh-group.git"
+  source = "github.com/mjmenger/terraform-f5xc-site-mesh-group.git?ref=v0.0.2"
 }
 
 inputs = {}
