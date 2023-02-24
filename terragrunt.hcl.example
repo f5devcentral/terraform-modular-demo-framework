@@ -26,9 +26,4 @@ inputs = {
     ssh_key                = "nameofawsec2keypairtouse"
     ssh_public_key         = "publickeycontent"
     auto_trust_localip     = true
-    f5xc_api_url           = "https://f5-sa.console.ves.volterra.io/api"
-    f5xc_api_token         = "XCAPITOKEN"
-    f5xc_tenant            = "f5-sa"
-    f5xc_namespace         = "your-namespace"
-    f5xc_aws_cred          = "nameofawscredstouse"
 }
