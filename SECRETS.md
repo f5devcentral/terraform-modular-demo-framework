@@ -8,6 +8,14 @@ For this project we will use [Mozilla SOPS](https://github.com/mozilla/sops).
 - untar the release
 - move the binary to /usr/local/bin/ or somewhere on your path
 
+### use vs code as editor for sops
+```bash
+export EDITOR="code --wait"
+```
+or add that to your `.bashrc` file
+
+you'll still have to start `sops` at the command line. `sops` will open the document in vs code and wait for you to save and close the document tab.
+
 ## update the SOPS creation rules
 
 TBD: how to create a key with AWS KMS
