@@ -29,8 +29,8 @@ creation_rules:
     kms: 'arn:aws:kms:us-west-2:317124676658:key/06e6489e-496c-4838-99c0-e6236a035160'
     pgp: '629D84554D89CF03C8A79432C01BFF1963A98831'
 ```
-the `kms` value is the ARN of the AWS KMS key you created
-the `pgp` value is the fingerprint (spaces removed) of the key pair created with `gpg`
+replace the `kms` value with the ARN of the AWS KMS key you created earlier
+replace the `pgp` value with the fingerprint (spaces removed) of the key pair created with `gpg`
 
 this tells `sops` to encrypt any file named with the .demo.yaml extension with both the AWS key and the PGP key such that either key can be used to decrypt the content. For the `kms` decryption to work the AWS credentials used by Terragrunt/Terraform must have access to the key. For the `pgp` decryption to work, Terragrunt/Terraform must have access to the private key of the pgp key pair.
 
