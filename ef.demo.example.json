@@ -1,0 +1,16 @@
+{
+    "xc_api_url": "https://tenant.console.ves.volterra.io/api",
+    "xc_tenant": "tenant",
+    "xc_api_p12_file": "/complete/path/to/your/p12.file",
+    "xc_p12_password": "passwordforyourp12file",
+    "xc_api_token": "yourvolterraapitoken",
+    "xc_cloud_credentials_aws": "thenameofyourdistributedcloudawscredentials",
+    "xc_cloud_credentials_azure": "thenameofyourdistributedcloudazurecredentials",
+    "ssh_public_key": "thepublickeycontentsofthekeypairyouwanttouse",
+    "aws_ec2_key_name": "theawsec2keyname",
+    "azure_clientid_spn": "theidoftheazureserviceprincipaltouse",
+    "azure_clientid_password": "thepasswordfortheazureserviceprincipal",
+    "gcp_project_id": "thegooglecomputeplatformprojecttouse"
+}
+
+
