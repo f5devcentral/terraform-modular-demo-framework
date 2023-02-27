@@ -8,26 +8,54 @@ For this project we will use [Mozilla SOPS](https://github.com/mozilla/sops).
 - untar the release
 - move the binary to /usr/local/bin/ or somewhere on your path
 
-### use vs code as editor for sops
+### use VS Code as editor for sops
+If you want to use VS Code as your sops editor for the current session, enter the following prior to the sops command.
 ```bash
 export EDITOR="code --wait"
 ```
-or add that to your `.bashrc` file
+or, if you want VS Code to be the sops editor for all sessions, add the export to your `.bashrc` file
 
-you'll still have to start `sops` at the command line. `sops` will open the document in vs code and wait for you to save and close the document tab.
+you will still start `sops` at the command line. `sops` will open the document in vs code and wait for you to save and close the document tab.
 
 ## update the SOPS creation rules
+Before setting the rules that sops uses to create new secrets file, encryption keys are necessary.
+### Create a symmetric AWS key
+```shell
+aws kms create-key --region us-west-2
+```
+You can change the region as you feel appropriate. And then capture the value at 
+```jq
+.KeyMetadata.Arn
+```
+TBD: grant users access to the key  
 
-TBD: how to create a key with AWS KMS
+or
 
-TBD: how to create a key pair with gpg
+Follow [the instructions](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) for creating a symmetric kms key and copy the ARN for the key from the AWS console.
+
+### Create GCP KMS key
+```bash
+gcloud kms keyrings create ef-sops --location global
+gcloud kms keys create ef-sops-key --location global --keyring ef-sops --purpose encryption
+gcloud kms keys list --location global --keyring ef-sops
+```
+copy the NAME value of the key you created, which looks like an uri
+
+### Create a PGP key pair 
+```shell
+gpg --full-generate-key
+```
+answer the prompts as appropriate
+
+
 
 update `.sops.yaml` with the following
 ```yaml
 creation_rules:
   - path_regex: \.demo\.yaml$
-    kms: 'arn:aws:kms:us-west-2:317124676658:key/06e6489e-496c-4838-99c0-e6236a035160'
-    pgp: '629D84554D89CF03C8A79432C01BFF1963A98831'
+    kms: 'the ARN you copied earlier'
+    gcp_kms: 'the uri of the gcp key'
+    pgp: 'the fingerprint of your gpg key'
 ```
 replace the `kms` value with the ARN of the AWS KMS key you created earlier
 replace the `pgp` value with the fingerprint (spaces removed) of the key pair created with `gpg`
