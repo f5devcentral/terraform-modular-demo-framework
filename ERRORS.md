@@ -58,3 +58,18 @@ ERRO[0018] 1 error occurred:
         * exit status 1
 
 This may occur after Terraform/Terragrunt reports a successful destroy. You may have to manually delete the site using the XC console. The root cause of this behavior is unknown.
+
+
+### destroying something you never built
+Error: Error Running terraform parameter action struct: Invoking CustomAPI RPC: Doing custom RPC using Rest: Unsuccessful custom API POST on /public/namespaces/system/terraform/aws_vpc_site/tgmjm2-appstackvpc-1/run, status code 404, body {"code":5,"details":[],"message":"no view ves.io.schema.views.aws_vpc_site.Object entry system/tgmjm2-appstackvpc-1"}, err %!s(<nil>)
+│ 
+│ 
+╵
+ERRO[0083] Terraform invocation failed in /home/mjmenger/expensive.food/aws-appstack-site-1/.terragrunt-cache/KJ-QPegccrkHV_ZrHx3a_NJzo-Y/nCwQR148dRCCsZS3mkCeqEracNM  prefix=[/home/mjmenger/expensive.food/aws-appstack-site-1] 
+ERRO[0083] Module /home/mjmenger/expensive.food/aws-appstack-site-1 has finished with an error: 1 error occurred:
+        * exit status 1
+  prefix=[/home/mjmenger/expensive.food/aws-appstack-site-1] 
+ERRO[0083] Dependency /home/mjmenger/expensive.food/aws-appstack-site-1 of module /home/mjmenger/expensive.food/aws-base-1 just finished with an error. Module /home/mjmenger/expensive.food/aws-base-1 will have to return an error too.  prefix=[/home/mjmenger/expensive.food/aws-base-1] 
+ERRO[0083] Module /home/mjmenger/expensive.food/aws-base-1 has finished with an error: Cannot process module Module /home/mjmenger/expensive.food/aws-base-1 (excluded: false, assume applied: false, dependencies: []) because one of its dependencies, Module /home/mjmenger/expensive.food/aws-appstack-site-1 (excluded: false, assume applied: false, dependencies: [/home/mjmenger/expensive.food/aws-base-1]), finished with an error: 1 error occurred:
+        * exit status 1
+  prefix=[/home/mjmenger/expensive.food/aws-base-1] 
