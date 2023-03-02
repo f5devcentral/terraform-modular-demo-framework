@@ -7,7 +7,7 @@ terraform {
 }
 
 dependencies {
-  paths = ["../aws-base-1","../aws-vpc-site-1"]
+  paths = ["../aws-base-1"]
 }
 
 dependency "infrastructure" {
