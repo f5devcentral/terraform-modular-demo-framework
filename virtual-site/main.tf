@@ -8,16 +8,7 @@ resource "volterra_virtual_site" "sentence_ce_sto" {
   site_type = "CUSTOMER_EDGE"
 }
 locals{
-    site_selector = [format("site_group in (%s)",var.projectPrefix)]
+    site_selector = [var.site_selector]
 }
-terraform {
-  required_version = ">= 0.12.7"
 
-  required_providers {
-    volterra = {
-      source = "volterraedge/volterra"
-    }
-  }
-}
-variable projectPrefix {}
-variable namespace {}
+

@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "github.com/piyerf5/terraform-f5xc-aws-appstack-site.git?ref=v0.0.1"
+  source = "github.com/piyerf5/terraform-f5xc-aws-appstack-site.git?ref=v0.0.2"
 }
 
 dependencies {
