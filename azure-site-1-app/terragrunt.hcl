@@ -1,7 +1,9 @@
 include "root" {
   path = find_in_parent_folders()
 }
-
+include "azure" {
+  path = find_in_parent_folders("azure.hcl")
+}
 terraform {
   before_hook "pre-check" {
       commands = ["apply","plan"]

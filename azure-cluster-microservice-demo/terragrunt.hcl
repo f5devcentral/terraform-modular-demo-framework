@@ -1,7 +1,9 @@
 include "root" {
   path = find_in_parent_folders()
 }
-
+include "azure" {
+  path = find_in_parent_folders("azure.hcl")
+}
 dependencies {
   paths = ["../azure-cluster-discovery"]
 }

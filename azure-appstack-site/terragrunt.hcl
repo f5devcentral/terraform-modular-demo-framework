@@ -1,7 +1,9 @@
 include "root" {
   path = find_in_parent_folders()
 }
-
+include "azure" {
+  path = find_in_parent_folders("azure.hcl")
+}
 terraform {
   source = "github.com/piyerf5/terraform-f5xc-azure-appstack-site.git?ref=v0.0.2"
 }
