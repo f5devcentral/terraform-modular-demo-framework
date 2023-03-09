@@ -31,7 +31,7 @@ if [ $aws_installed -eq 1 ]
 then
     # CHECK FOR AWS ACCESS
     echo Checking for AWS account access
-    #az account show | jq .name
+    aws sts get-caller-identity
     ## validate the the account name is appropriate
 
 fi
