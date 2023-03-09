@@ -4,6 +4,11 @@ include "root" {
 include "aws" {
   path = find_in_parent_folders("aws.hcl")
 }
+
+include "aws-base" {
+  path = find_in_parent_folders("aws-base.hcl")
+}
+
 terraform {
   source = "github.com/mjmenger/terraform-f5xc-aws-base.git?ref=v0.0.1"
 }
