@@ -18,6 +18,7 @@ terraform {
 
 inputs = {
     projectPrefix          = "prefixforassets"
+    resourceOwner          = "lastname"
     useremail              = local.secret_vars["useremail"]
     namespace              = local.secret_vars["xc_namespace"]
     trusted_ip             = "1.1.1.1/32"
