@@ -1,9 +1,15 @@
 include "root" {
   path = find_in_parent_folders()
 }
+
 include "azure" {
   path = find_in_parent_folders("azure.hcl")
 }
+
+terraform {
+  source = "github.com/piyerf5/cluster-microservices-demo.git?ref=v0.0.1"
+}
+
 dependencies {
   paths = ["../azure-cluster-discovery"]
 }
