@@ -19,7 +19,7 @@ if [ $az_installed -eq 1 ]
 then
     # CHECK FOR AZURE ACCESS
     echo Checking for Azure account access
-    az account show | jq .name
+    az account show | jq -r .name
     echo TBD validate that the account is the expected one
     ## validate the the account name is appropriate
 fi
@@ -28,7 +28,7 @@ if [ $aws_installed -eq 1 ]
 then
     # CHECK FOR AWS ACCESS
     echo Checking for AWS account access
-    aws sts get-caller-identity | jq .Account
+    aws sts get-caller-identity | jq -r .Account
     echo TBD validate that the account is the expected one
     ## validate the the account name is appropriate
 fi
@@ -38,5 +38,6 @@ then
     # CHECK FOR GOOGLE ACCESS
     echo Checking for Google account access
     gcloud config list --format 'value(core.project)'
+    echo TBD validate that the account is the expected one    
     ## validate the the account name is appropriate
 fi
