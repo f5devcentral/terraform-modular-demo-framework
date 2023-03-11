@@ -35,6 +35,7 @@ terraform {
 inputs = {
     projectPrefix          = "mydemo"
     resourceOwner          = "lastname"
+    domain_name            = "example.site.com"
     namespace              = "m-menger"
     trusted_ip             = "192.0.10.1/32"
     volterraTenant         = "tenant"
