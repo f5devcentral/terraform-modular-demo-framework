@@ -15,6 +15,7 @@ terraform {
 inputs = {
     projectPrefix          = "prefixforassets"
     resourceOwner          = "lastname"
+    domain_name            = "example.site.com"
     namespace              = "your-namespace"
     trusted_ip             = "1.1.1.1/32"
     volterraTenant         = "f5-sa"

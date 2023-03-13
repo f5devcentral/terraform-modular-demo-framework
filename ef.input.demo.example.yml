@@ -1,0 +1,22 @@
+projectPrefix: uniqueprefixforyourresources
+resourceOwner: yourlastname
+domain_name: example.site.com
+useremail: youremail@example.com
+namespace: yourxcnamespace
+trusted_ip: 1.1.1.1/32
+auto_trust_localip: false
+volterraTenant: yourxctenant
+volterraCloudCredAWS: thenameofyourdistributedcloudawscredentials
+volterraCloudCredAzure: thenameofyourdistributedcloudazurecredentials
+awsRegion: us-east-2
+awsRegion2: us-west-2
+azureRegion: westus2
+azureRegion2: eastus
+ssh_key: theawsec2keyname
+ssh_public_key: ssh-rsa AA...Qfg 
+xc_api_url: https://yourxctenant.console.ves.volterra.io/api
+xc_tenant: yourxctenant
+project_id: thegooglecomputeplatformprojecttouse
+xc_sitetoken: yourvolterraapitoken
+clientID_azurespn: theidoftheazureserviceprincipaltouse
+clientID_password: thepasswordfortheazureserviceprincipal
