@@ -65,21 +65,43 @@ this tells `sops` to encrypt any file named with the .demo.yaml extension with b
 ## update the secret values 
 create the secrets file with `sops`
 ```bash
-sops ef.demo.yaml
+sops ef.input.demo.yaml
 ```
 Add the following content to the file, making adjustments as appropriate for your configuration.
 
+ef.input.demo.yaml
 ```yaml
-volt_api_url: https://tenant.console.ves.volterra.io/api
-volt_tenant: tenant
-volt_api_p12_file: /complete/path/to/your/p12.file
-volt_p12_password: passwordforyourp12file
-volt_api_token: yourvolterraapitoken
-volt_cloud_credentials_aws: thenameofyourdistributedcloudawscredentials
-volt_cloud_credentials_azure: thenameofyourdistributedcloudazurecredentials
+projectPrefix: uniqueprefix
+resourceOwner: yourlastname
+useremail: your.email@addre.ss
+namespace: yourf5distributedcloudnamespace
+trusted_ip: 1.1.1.1/32
+auto_trust_localip: false
+volterraTenant: yourf5distributedcloudtenant
+volterraCloudCredAWS: thenameofyourdistributedcloudawscredentials
+volterraCloudCredAzure: thenameofyourdistributedcloudazurecredentials
+awsRegion: us-east-2
+awsRegion2: us-west-2
+azureRegion: westus2
+azureRegion2: eastus
+ssh_key: theawsec2keyname
 ssh_public_key: thepublickeycontentsofthekeypairyouwanttouse
-aws_ec2_key_name: theawsec2keyname
-azure_clientid_spn: theidoftheazureserviceprincipaltouse
-azure_clientid_password: thepasswordfortheazureserviceprincipal
-gcp_project_id: thegooglecomputeplatformprojecttouse
+xc_api_url: https://yourf5distributedcloudtenant.console.ves.volterra.io/api
+xc_tenant: yourf5distributedcloudtenant
+project_id: thegooglecomputeplatformprojecttouse
+xc_sitetoken: yourvolterraapitoken
+clientID_azurespn: theidoftheazureserviceprincipaltouse
+clientID_password: thepasswordfortheazureserviceprincipal
+```
+then create your environment variables file
+```bash
+sops ef.env.demo.yaml
+```
+ef.env.demo.yaml
+```yaml
+VOLT_API_URL: https://yourf5distributedcloudtenant.console.ves.volterra.io/api
+VOLT_API_TIMEOUT: 60s
+VOLT_API_P12_FILE: /the/absolute/path/to/your/p12file.p12
+VES_P12_PASSWORD: thepasswordforyourp12file
+VOLTERRA_TOKEN: yourvolterraapitoken
 ```
