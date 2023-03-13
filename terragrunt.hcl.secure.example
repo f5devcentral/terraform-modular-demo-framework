@@ -1,39 +1,14 @@
 locals{
-    secret_vars = yamldecode(sops_decrypt_file("${get_path_to_repo_root()}/ef.demo.yaml"))
+    secret_input_vars = yamldecode(sops_decrypt_file("${get_path_to_repo_root()}/ef.input.demo.yaml"))
+    secret_env_vars = yamldecode(sops_decrypt_file("${get_path_to_repo_root()}/ef.env.demo.yaml"))
 }
 
 terraform {
     extra_arguments "volterra" {
         commands = ["apply","plan","destroy"]
         arguments = []
-        env_vars = {
-            VOLT_API_URL      = local.secret_vars["xc_api_url"]
-            VOLT_API_TIMEOUT  = "60s"
-            VOLT_API_P12_FILE = local.secret_vars["xc_api_p12_file"]
-            VES_P12_PASSWORD  = local.secret_vars["xc_p12_password"]
-            VOLTERRA_TOKEN    = local.secret_vars["xc_api_token"]
-        }
+        env_vars = local.secret_env_vars
     }
 }
 
-inputs = {
-    projectPrefix          = "prefixforassets"
-    resourceOwner          = "lastname"
-    useremail              = local.secret_vars["useremail"]
-    namespace              = local.secret_vars["xc_namespace"]
-    trusted_ip             = "1.1.1.1/32"
-    auto_trust_localip     = false
-    volterraTenant         = local.secret_vars["xc_tenant"]
-    volterraCloudCredAWS   = local.secret_vars["xc_cloud_credentials_aws"]
-    volterraCloudCredAzure = local.secret_vars["xc_cloud_credentials_azure"]
-    awsRegion              = "us-east-2"
-    awsRegion2             = "us-west-2"
-    azureRegion            = "westus2"
-    azureRegion2           = "eastus"
-    ssh_key                = local.secret_vars["aws_ec2_key_name"]
-    ssh_public_key         = local.secret_vars["ssh_public_key"]
-    project_id             = local.secret_vars["gcp_project_id"]
-    xc_sitetoken           = local.secret_vars["xc_api_token"]
-    clientID_azurespn      = local.secret_vars["azure_clientid_spn"]
-    clientID_password      = local.secret_vars["azure_clientid_password"]
-}
+inputs = local.secret_input_vars
