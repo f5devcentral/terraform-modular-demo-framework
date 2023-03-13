@@ -1,0 +1,22 @@
+projectPrefix: uniqueprefixforyourresources
+resourceOwner: yourlastname
+domain_name: example.site.com
+useremail: youremail@example.com
+namespace: yourxcnamespace
+trusted_ip: 1.1.1.1/32
+auto_trust_localip: false
+volterraTenant: yourxctenant
+volterraCloudCredAWS: thenameofyourdistributedcloudawscredentials
+volterraCloudCredAzure: thenameofyourdistributedcloudazurecredentials
+awsRegion: us-east-2
+awsRegion2: us-west-2
+azureRegion: westus2
+azureRegion2: eastus
+ssh_key: theawsec2keyname
+ssh_public_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqJu8mrbIYD6m/usdm+E3g5umIYdHqZGynXq+dDqvCekuyQX9OXQ+o1F8fMi4J4BYp0M8vE8nI2+23nmmY2W8eHW1TxvMfBoPKVk5Oo09NwX2wKtolXfs3tgu2OQI8VjRwXSE/gR32mhHRJZIaD2zeYPDWm9NCzRHa7KpmYcYUKRukaoCTjvz+HjpAuQTvacyPFiaE8wbp7Hv6/AzsNcRslKcIZf5I35Nw5YMA7kOt296PiTgDuNdzgmfs2PBJHZGAbvkDYpD9BtuOtsUoahS1eUSAK2DqGlvH7Ez84kZezgQbLzLTA5+yIB/yaz4HhNGd6dkujFtzTYIBIvQHGIkL mjmenger@devbox
+xc_api_url: https://yourxctenant.console.ves.volterra.io/api
+xc_tenant: yourxctenant
+project_id: thegooglecomputeplatformprojecttouse
+xc_sitetoken: yourvolterraapitoken
+clientID_azurespn: theidoftheazureserviceprincipaltouse
+clientID_password: thepasswordfortheazureserviceprincipal
