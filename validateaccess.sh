@@ -22,6 +22,7 @@ then
     az account show | jq -r .name
     echo TBD validate that the account is the expected one
     ## validate the the account name is appropriate
+    ## validate that requisite permissions are in place
 fi
 # CHECK FOR AWS ACCESS
 if [ $aws_installed -eq 1 ] 
@@ -31,6 +32,7 @@ then
     aws sts get-caller-identity | jq -r .Account
     echo TBD validate that the account is the expected one
     ## validate the the account name is appropriate
+    ## validate that requisite permissions are in place
 fi
 # CHECK FOR GOOGLE ACCESS
 if [ $gcloud_installed -eq 1 ] 
@@ -40,4 +42,5 @@ then
     gcloud config list --format 'value(core.project)'
     echo TBD validate that the account is the expected one    
     ## validate the the account name is appropriate
+    ## validate that requisite permissions are in place
 fi
