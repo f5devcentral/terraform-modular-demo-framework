@@ -43,5 +43,7 @@ override.tf.json
 **/.vscode/*
 waitfornext/garbage.txt
 terragrunt.hcl*
+aws.hcl*
+azure.hcl*
 params.yaml
 .sops.yaml
