@@ -1,3 +1,6 @@
+# use references to this file by the following. Run from the root of the repository
+# terragrunt run-all apply --terragrunt-modules-that-include ./azure.hcl
+
 terraform {
     extra_arguments "volterra" {
         commands = ["apply","plan","destroy"]
@@ -19,13 +22,9 @@ inputs = {
     namespace              = "your-namespace"
     trusted_ip             = "1.1.1.1/32"
     volterraTenant         = "your-tenant-abcxyz"
-    volterraCloudCredAWS   = "nameofawscredstouse"
     volterraCloudCredAzure = "nameofazurecredstouse"
-    awsRegion              = "us-east-2"
-    awsRegion2             = "us-west-2"
     azureRegion            = "westus2"
     azureRegion2           = "eastus"
-    ssh_key                = "nameofawsec2keypairtouse"
     ssh_public_key         = "ssh-rsa AAAA...redacted"
     auto_trust_localip     = true
     createJumphost         = false
