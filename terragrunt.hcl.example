@@ -29,4 +29,5 @@ inputs = {
     ssh_public_key         = "ssh-rsa AAAA...redacted"
     auto_trust_localip     = true
     createJumphost         = false
+    numWorkerNodesPerAz    = 0
 }

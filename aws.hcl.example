@@ -28,5 +28,5 @@ inputs = {
     ssh_key              = "nameofawsec2keypairtouse"
     auto_trust_localip   = true
     createJumphost       = true
-    numWorkerNodes       = 0
+    numWorkerNodesPerAz  = 0
 }
