@@ -27,6 +27,6 @@ inputs = {
     awsRegion2           = "us-west-2"
     ssh_key              = "nameofawsec2keypairtouse"
     auto_trust_localip   = true
-    createJumphost       = true
+    createJumphost       = false
     numWorkerNodesPerAz  = 0
 }
