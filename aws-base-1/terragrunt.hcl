@@ -7,7 +7,7 @@ include "aws" {
 }
 
 terraform {
-  source = "github.com/mjmenger/terraform-f5xc-aws-base.git?ref=v0.0.3rc"
+  source = "github.com/mjmenger/terraform-f5xc-aws-base.git?ref=v0.0.3rc1"
 }
 
 inputs = {
