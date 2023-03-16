@@ -2,8 +2,12 @@ include "root" {
   path = find_in_parent_folders()
 }
 
+include "aws" {
+  path = find_in_parent_folders("aws.hcl")
+}
+
 terraform {
-  source = "github.com/jeffgiroux/terraform-f5xc-aws-app-vm.git?ref=main"
+  source = "github.com/jeffgiroux/terraform-f5xc-aws-app-vm.git?ref=v0.0.2"
   before_hook "pre-check" {
       commands = ["apply","plan"]
       execute  = ["./pre-check.sh"]
