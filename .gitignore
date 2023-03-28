@@ -45,3 +45,4 @@ waitfornext/garbage.txt
 terragrunt.hcl*
 params.yaml
 .sops.yaml
+!.devcontainer/*
