@@ -4,12 +4,19 @@ include "root" {
 include "aws" {
   path = find_in_parent_folders("aws.hcl")
 }
+include "appstack" {
+  path = find_in_parent_folders("appstack.hcl")
+}
 terraform {
-  source = "github.com/piyerf5/terraform-f5xc-aws-appstack-site.git?ref=v0.0.1"
+  source = "github.com/piyerf5/terraform-f5xc-aws-appstack-site.git?ref=v0.0.4rc4"
 }
 
 dependencies {
-  paths = ["${get_path_to_repo_root()}/aws-base-1"]
+  paths = ["${get_path_to_repo_root()}/aws-base-1","${get_path_to_repo_root()}/mk8s-cluster-1"]
+}
+
+dependency "cluster" {
+  config_path = "${get_path_to_repo_root()}/mk8s-cluster-1"
 }
 
 dependency "infrastructure" {
@@ -97,4 +104,6 @@ inputs = {
     spokeVpcId           = dependency.infrastructure.outputs.spoke_vpc_id
     spoke2VpcId          = dependency.infrastructure.outputs.spoke2_vpc_id
     spokeSecurityGroup   = dependency.infrastructure.outputs.spoke_security_group
+    k8s_cluster_name     = dependency.cluster.outputs.k8s_cluster_name
+    k8s_cluster_namespace= dependency.cluster.outputs.k8s_cluster_namespace
 }
