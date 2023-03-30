@@ -37,4 +37,5 @@ inputs = {
   f5demo_app           = "text"
   f5demo_nodename      = "AWS Demo App Site-1"
   f5demo_color         = "ed7b0c"
+  numWorkerNodesPerAz  = 0
 }
