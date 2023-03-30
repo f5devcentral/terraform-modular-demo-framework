@@ -5,7 +5,7 @@ include "aws" {
   path = find_in_parent_folders("aws.hcl")
 }
 terraform {
-  source = "github.com/mjmenger/terraform-f5xc-aws-vpc-site.git?ref=v0.0.3"
+  source = "github.com/mjmenger/terraform-f5xc-aws-vpc-site.git?ref=v0.1.0rc2"
 }
 
 dependencies {
@@ -82,20 +82,20 @@ dependency "infrastructure" {
 }
 
 inputs = {
-    instanceSuffix       = "2"
-    awsRegion            = dependency.infrastructure.outputs.aws_region
-    awsAz1               = dependency.infrastructure.outputs.aws_az1
-    awsAz2               = dependency.infrastructure.outputs.aws_az2
-    awsAz3               = dependency.infrastructure.outputs.aws_az3
-    externalSubnets      = dependency.infrastructure.outputs.external_subnets
-    internalSubnets      = dependency.infrastructure.outputs.internal_subnets
-    workloadSubnets      = dependency.infrastructure.outputs.workload_subnets
-    spokeExternalSubnets = dependency.infrastructure.outputs.spoke_external_subnets
-    spokeWorkloadSubnets = dependency.infrastructure.outputs.spoke_workload_subnets
-    securityGroup        = dependency.infrastructure.outputs.security_group
-    vpcId                = dependency.infrastructure.outputs.vpc_id
-    spokeVpcId           = dependency.infrastructure.outputs.spoke_vpc_id
-    spoke2VpcId          = dependency.infrastructure.outputs.spoke2_vpc_id
-    spokeSecurityGroup   = dependency.infrastructure.outputs.spoke_security_group
-    numWorkerNodesPerAz  = 0
+    instance_suffix         = "2"
+    aws_region              = dependency.infrastructure.outputs.aws_region
+    aws_az1                 = dependency.infrastructure.outputs.aws_az1
+    aws_az2                 = dependency.infrastructure.outputs.aws_az2
+    aws_az3                 = dependency.infrastructure.outputs.aws_az3
+    external_subnets        = dependency.infrastructure.outputs.external_subnets
+    internal_subnets        = dependency.infrastructure.outputs.internal_subnets
+    workload_subnets        = dependency.infrastructure.outputs.workload_subnets
+    spoke_external_subnets  = dependency.infrastructure.outputs.spoke_external_subnets
+    spoke_workload_subnets  = dependency.infrastructure.outputs.spoke_workload_subnets
+    security_group          = dependency.infrastructure.outputs.security_group
+    vpc_id                  = dependency.infrastructure.outputs.vpc_id
+    spoke_vpc_id            = dependency.infrastructure.outputs.spoke_vpc_id
+    spoke2_vpc_id           = dependency.infrastructure.outputs.spoke2_vpc_id
+    spoke_security_group    = dependency.infrastructure.outputs.spoke_security_group
+    num_worker_nodes_per_az = 0
 }
