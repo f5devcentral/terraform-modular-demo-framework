@@ -97,4 +97,5 @@ inputs = {
     spokeVpcId           = dependency.infrastructure.outputs.spoke_vpc_id
     spoke2VpcId          = dependency.infrastructure.outputs.spoke2_vpc_id
     spokeSecurityGroup   = dependency.infrastructure.outputs.spoke_security_group
+    numWorkerNodesPerAz  = 0
 }
