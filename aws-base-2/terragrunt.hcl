@@ -5,13 +5,13 @@ include "aws" {
   path = find_in_parent_folders("aws.hcl")
 }
 terraform {
-  source = "github.com/mjmenger/terraform-f5xc-aws-base.git?ref=v0.0.3"
+  source = "github.com/mjmenger/terraform-f5xc-aws-base.git?ref=v0.1.0rc3"
 }
 
 inputs = {
-  awsRegion = "us-west-2"
-  servicesVpcCidrBlock = "100.64.32.0/20"
-  servicesVpc = {
+  aws_region = "us-west-2"
+  services_vpc_cidr_block = "100.64.32.0/20"
+  services_vpc = {
     "azs" = {
       "az1" = { az = "us-west-2a" },
       "az2" = { az = "us-west-2b" },
@@ -52,8 +52,8 @@ inputs = {
     }
 
   }
-  spokeVpcCidrBlock = "10.0.32.0/20"
-  spokeVpc = {
+  spoke_vpc_cidr_block = "10.0.32.0/20"
+  spoke_vpc = {
     "azs" = {
       "az1" = { az = "us-west-2a" },
       "az2" = { az = "us-west-2b" },
@@ -94,8 +94,8 @@ inputs = {
     }
 
   }
-  spoke2VpcCidrBlock = "10.0.64.0/20"
-  spoke2Vpc = {
+  spoke2_vpc_cidr_block = "10.0.64.0/20"
+  spoke2_vpc = {
     "azs" = {
       "az1" = { az = "us-west-2a" },
       "az2" = { az = "us-west-2b" },
