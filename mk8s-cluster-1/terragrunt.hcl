@@ -5,9 +5,7 @@ include "appstack" {
   path = find_in_parent_folders("appstack.hcl")
 }
 
- terraform {
-#   source = "github.com/mjmenger/terraform-f5xc-site-mesh-group.git"
- }
+ terraform {}
 
 inputs = {
     instanceSuffix = "1"
