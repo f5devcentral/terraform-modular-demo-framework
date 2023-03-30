@@ -4,7 +4,7 @@ include "root" {
 include "azure" {
   path = find_in_parent_folders("azure.hcl")
 }
-include "azure" {
+include "appstack" {
   path = find_in_parent_folders("appstack.hcl")
 }
 terraform {

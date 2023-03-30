@@ -5,7 +5,9 @@ include "root" {
 include "aws" {
   path = find_in_parent_folders("aws.hcl")
 }
-
+include "appstack" {
+  path = find_in_parent_folders("appstack.hcl")
+}
 include "aws-base" {
   path = find_in_parent_folders("aws-base.hcl")
 }
