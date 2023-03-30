@@ -83,18 +83,18 @@ dependency "infrastructure" {
 
 inputs = {
     instanceSuffix       = "2"
-    awsRegion            = dependency.infrastructure.outputs.awsRegion
-    awsAz1               = dependency.infrastructure.outputs.awsAz1
-    awsAz2               = dependency.infrastructure.outputs.awsAz2
-    awsAz3               = dependency.infrastructure.outputs.awsAz3
-    externalSubnets      = dependency.infrastructure.outputs.externalSubnets
-    internalSubnets      = dependency.infrastructure.outputs.internalSubnets
-    workloadSubnets      = dependency.infrastructure.outputs.workloadSubnets
-    spokeExternalSubnets = dependency.infrastructure.outputs.spokeExternalSubnets
-    spokeWorkloadSubnets = dependency.infrastructure.outputs.spokeWorkloadSubnets
-    securityGroup        = dependency.infrastructure.outputs.securityGroup
-    vpcId                = dependency.infrastructure.outputs.vpcId
-    spokeVpcId           = dependency.infrastructure.outputs.spokeVpcId
-    spoke2VpcId          = dependency.infrastructure.outputs.spoke2VpcId
-    spokeSecurityGroup   = dependency.infrastructure.outputs.spokeSecurityGroup
+    awsRegion            = dependency.infrastructure.outputs.aws_region
+    awsAz1               = dependency.infrastructure.outputs.aws_az1
+    awsAz2               = dependency.infrastructure.outputs.aws_az2
+    awsAz3               = dependency.infrastructure.outputs.aws_az3
+    externalSubnets      = dependency.infrastructure.outputs.external_subnets
+    internalSubnets      = dependency.infrastructure.outputs.internal_subnets
+    workloadSubnets      = dependency.infrastructure.outputs.workload_subnets
+    spokeExternalSubnets = dependency.infrastructure.outputs.spoke_external_subnets
+    spokeWorkloadSubnets = dependency.infrastructure.outputs.spoke_workload_subnets
+    securityGroup        = dependency.infrastructure.outputs.security_group
+    vpcId                = dependency.infrastructure.outputs.vpc_id
+    spokeVpcId           = dependency.infrastructure.outputs.spoke_vpc_id
+    spoke2VpcId          = dependency.infrastructure.outputs.spoke2_vpc_id
+    spokeSecurityGroup   = dependency.infrastructure.outputs.spoke_security_group
 }
