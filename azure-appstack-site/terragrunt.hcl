@@ -8,7 +8,8 @@ include "appstack" {
   path = find_in_parent_folders("appstack.hcl")
 }
 terraform {
-  source = "github.com/piyerf5/terraform-f5xc-azure-appstack-site.git?ref=v0.0.4rc2"
+  # TBD: change to piyerf5 once PR is merged
+  source = "github.com/mjmenger/terraform-f5xc-azure-appstack-site.git?ref=v0.1.0rc2"
 }
 
 dependencies {
@@ -28,9 +29,9 @@ dependency "infrastructure" {
 }
 
 inputs = {
-  instanceSuffix = "1"
-  resourceGroup  = dependency.infrastructure.outputs.resourceGroup
-  hubVnetName    = dependency.infrastructure.outputs.hubVnetName
-  k8s_cluster_name     = dependency.cluster.outputs.k8s_cluster_name
-  k8s_cluster_namespace= dependency.cluster.outputs.k8s_cluster_namespace
+  instance_suffix       = "1"
+  resource_group        = dependency.infrastructure.outputs.resourceGroup
+  hub_vnet_name         = dependency.infrastructure.outputs.hubVnetName
+  k8s_cluster_name      = dependency.cluster.outputs.k8s_cluster_name
+  k8s_cluster_namespace = dependency.cluster.outputs.k8s_cluster_namespace
 }
