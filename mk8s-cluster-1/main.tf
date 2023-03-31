@@ -1,5 +1,5 @@
 resource "volterra_k8s_cluster" "example" {
-  name      = format("%s-mk8s-%s",var.projectPrefix, var.instanceSuffix)
+  name      = format("%s-mk8s-%s",var.project_prefix, var.instance_suffix)
   namespace = "system"
 
   // One of the arguments from this list "no_cluster_wide_apps cluster_wide_app_list" must be set
@@ -28,11 +28,11 @@ resource "volterra_k8s_cluster" "example" {
   use_default_psp = true
 }
 
-variable "projectPrefix" {
+variable "project_prefix" {
   type        = string
   description = "projectPrefix name for tagging"
 }
-variable "instanceSuffix" {
+variable "instance_suffix" {
   type = string
 }
 
