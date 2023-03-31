@@ -5,7 +5,7 @@ include "azure" {
   path = find_in_parent_folders("azure.hcl")
 }
 terraform {
-  source = "github.com/mjmenger/terraform-f5xc-azure-discovered-cluster.git?ref=v0.0.1"
+  source = "github.com/mjmenger/terraform-f5xc-azure-discovered-cluster.git?ref=v0.1.0"
   before_hook "pre-check" {
       commands = ["apply","plan"]
       execute  = ["./pre-check.sh"]
@@ -26,9 +26,9 @@ dependency "xc_site" {
 }
 
 inputs = {
-  instanceSuffix        = "2"
+  instance_suffix        = "2"
   site_type             = dependency.xc_site.outputs.site_type
   site_name             = dependency.xc_site.outputs.site_name
-  azureRegion           = dependency.infrastructure.outputs.azureRegion
-  resourceGroup         = dependency.infrastructure.outputs.resourceGroup  
+  azure_region           = dependency.infrastructure.outputs.azureRegion
+  resource_group         = dependency.infrastructure.outputs.resourceGroup  
 }
