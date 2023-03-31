@@ -36,6 +36,6 @@ inputs = {
   instanceSuffix        = "1"
   site_type             = dependency.xc_site.outputs.site_type
   site_name             = dependency.xc_site.outputs.site_name
-  azureRegion           = dependency.infrastructure.outputs.azureRegion
-  resourceGroup         = dependency.infrastructure.outputs.resourceGroup  
+  azureRegion           = dependency.infrastructure.outputs.azure_region
+  resourceGroup         = dependency.infrastructure.outputs.resource_group  
 }
