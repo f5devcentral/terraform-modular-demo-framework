@@ -14,5 +14,5 @@ include "appstack" {
  terraform {}
 
 inputs = {
-    instanceSuffix = "1"
+    instance_suffix = "1"
 }
