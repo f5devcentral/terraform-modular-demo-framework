@@ -9,6 +9,9 @@ include "appstack" {
 }
 terraform {
   source = "github.com/mjmenger/terraform-f5xc-aws-appstack-site.git?ref=v0.1.0rc1"
+  # restore the source to piyerf5 below when the supporting merge is completed in the
+  # module source
+  # source = "github.com/piyerf5/terraform-f5xc-aws-appstack-site.git?ref=v0.1.0"
 }
 
 dependencies {
