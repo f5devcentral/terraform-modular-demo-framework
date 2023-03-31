@@ -5,7 +5,7 @@ include "azure" {
   path = find_in_parent_folders("azure.hcl")
 }
 terraform {
-  source = "github.com/mjmenger/terraform-f5xc-azure-site.git?ref=v0.0.3"
+  source = "github.com/mjmenger/terraform-f5xc-azure-site.git?ref=v0.1.0rc4"
 }
 
 dependencies {
@@ -21,8 +21,8 @@ dependency "infrastructure" {
 }
 
 inputs = {
-  instanceSuffix = "1"
-  resourceGroup  = dependency.infrastructure.outputs.resourceGroup
-  hubVnetName    = dependency.infrastructure.outputs.hubVnetName
+  instance_suffix = "1"
+  resource_group  = dependency.infrastructure.outputs.resourceGroup
+  hub_vnet_name   = dependency.infrastructure.outputs.hubVnetName
 }
 
