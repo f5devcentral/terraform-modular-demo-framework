@@ -26,9 +26,9 @@ dependency "xc_site" {
 }
 
 inputs = {
-  instance_suffix        = "2"
-  site_type             = dependency.xc_site.outputs.site_type
-  site_name             = dependency.xc_site.outputs.site_name
-  azure_region           = dependency.infrastructure.outputs.azureRegion
-  resource_group         = dependency.infrastructure.outputs.resourceGroup  
+  instance_suffix = "2"
+  site_type       = dependency.xc_site.outputs.site_type
+  site_name       = dependency.xc_site.outputs.site_name
+  azure_region    = dependency.infrastructure.outputs.azure_region
+  resource_group  = dependency.infrastructure.outputs.resource_group
 }

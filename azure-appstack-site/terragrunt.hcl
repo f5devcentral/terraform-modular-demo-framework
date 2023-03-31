@@ -30,8 +30,8 @@ dependency "infrastructure" {
 
 inputs = {
   instance_suffix       = "1"
-  resource_group        = dependency.infrastructure.outputs.resourceGroup
-  hub_vnet_name         = dependency.infrastructure.outputs.hubVnetName
+  resource_group        = dependency.infrastructure.outputs.resource_group
+  hub_vnet_name         = dependency.infrastructure.outputs.hub_vnet_name
   k8s_cluster_name      = dependency.cluster.outputs.k8s_cluster_name
   k8s_cluster_namespace = dependency.cluster.outputs.k8s_cluster_namespace
 }
