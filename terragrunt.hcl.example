@@ -13,21 +13,21 @@ terraform {
 }
 
 inputs = {
-    projectPrefix          = "prefixforassets"
-    resourceOwner          = "lastname"
-    domain_name            = "example.site.com"
-    namespace              = "your-namespace"
-    trusted_ip             = "1.1.1.1/32"
-    volterraTenant         = "your-tenant-abcxyz"
-    volterraCloudCredAWS   = "nameofawscredstouse"
-    volterraCloudCredAzure = "nameofazurecredstouse"
-    awsRegion              = "us-east-2"
-    awsRegion2             = "us-west-2"
-    azureRegion            = "westus2"
-    azureRegion2           = "eastus"
-    ssh_key                = "nameofawsec2keypairtouse"
-    ssh_public_key         = "ssh-rsa AAAA...redacted"
-    auto_trust_localip     = true
-    createJumphost         = false
-    numWorkerNodesPerAz    = 0
+    project_prefix            = "prefixforassets"
+    resource_owner            = "lastname"
+    domain_name               = "example.site.com"
+    namespace                 = "your-namespace"
+    trusted_ip                = "1.1.1.1/32"
+    volterra_tenant           = "your-tenant-abcxyz" # https://yourtenantname.console.ves.volterra.io/web/workspaces/administration/tenant-settings/tenant-overview
+    volterra_cloud_cred_aws   = "nameofawscredstouse"
+    volterra_cloud_cred_azure = "nameofazurecredstouse"
+    aws_region                = "us-east-2"
+    aws_region2               = "us-west-2"
+    azure_region              = "westus2"
+    azure_region2             = "eastus"
+    ssh_key                   = "nameofawsec2keypairtouse"
+    ssh_public_key            = "ssh-rsa AAAA...redacted"
+    auto_trust_localip        = true
+    create_jumphost           = false
+    num_worker_nodes_per_az   = 0
 }
