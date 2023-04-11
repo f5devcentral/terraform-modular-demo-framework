@@ -7,8 +7,7 @@ include "aws" {
 }
 
 terraform {
-  # change source to jeffgiroux repository when https://github.com/JeffGiroux/terraform-f5xc-aws-app-vm/pull/4 is merged
-  source = "github.com/mjmenger/terraform-f5xc-aws-app-vm.git?ref=v0.1.0rc1"
+  source = "github.com/JeffGiroux/terraform-f5xc-aws-app-vm.git?ref=v0.1.0"
   before_hook "pre-check" {
       commands = ["apply","plan"]
       execute  = ["./pre-check.sh"]
