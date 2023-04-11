@@ -8,8 +8,7 @@ include "appstack" {
   path = find_in_parent_folders("appstack.hcl")
 }
 terraform {
-  # TBD: change to piyerf5 once PR is merged
-  source = "github.com/mjmenger/terraform-f5xc-azure-appstack-site.git?ref=v0.1.0rc2"
+  source = "github.com/piyerf5/terraform-f5xc-azure-appstack-site.git?ref=v0.1.0"
 }
 
 dependencies {
