@@ -5,23 +5,23 @@ include "azure" {
   path = find_in_parent_folders("azure.hcl")
 }
 terraform {
-  source = "github.com/mjmenger/terraform-f5xc-azure-base.git?ref=v0.0.1"
+  source = "github.com/mjmenger/terraform-f5xc-azure-base.git?ref=v0.1.0"
 }
 
 inputs = {
-  azureRegion                = "westus2"
-  buildSuffix                = "env2"
-  resourceGroup              = "f5demo_rg"
-  location                   = "westus2"
-  servicesVnetAddressSpace   = "100.64.64.0/20"
-  servicesVnetExternalSubnet = "100.64.64.0/24"
-  servicesVnetInternalSubnet = "100.64.65.0/24"
-  servicesVnetWorkloadSubnet = "100.64.66.0/24"
-  servicesVnetGatewaySubnet  = "100.64.67.0/24"
-  spokeVnetAddressSpace      = "10.2.16.0/20"
-  spokeVnetExternalSubnet    = "10.2.16.0/24"
-  spokeVnetInternalSubnet    = "10.2.17.0/24"
-  spokeVnetWorkloadSubnet    = "10.2.18.0/24"
+  azure_region                  = "westus2"
+  instance_suffix               = "env2"
+  resource_group                = "f5demo_rg"
+  location                      = "westus2"
+  services_vnet_address_space   = "100.64.64.0/20"
+  services_vnet_external_subnet = "100.64.64.0/24"
+  services_vnet_internal_subnet = "100.64.65.0/24"
+  services_vnet_workload_subnet = "100.64.66.0/24"
+  services_vnet_gateway_subnet  = "100.64.67.0/24"
+  spoke_vnet_address_space      = "10.2.16.0/20"
+  spoke_vnet_external_subnet    = "10.2.16.0/24"
+  spoke_vnet_internal_subnet    = "10.2.17.0/24"
+  spoke_vnet_workload_subnet    = "10.2.18.0/24"
 }
 
 dependencies {

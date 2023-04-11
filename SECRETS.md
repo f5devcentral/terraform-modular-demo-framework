@@ -43,7 +43,7 @@ copy the NAME value of the key you created, which looks like an uri
 
 ### Create a PGP key pair 
 ```shell
-gpg --full-generate-key
+gpg --quick-generate-key
 ```
 answer the prompts as appropriate
 

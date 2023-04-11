@@ -7,7 +7,7 @@ include "aws" {
 }
 
 terraform {
-  source = "github.com/jeffgiroux/terraform-f5xc-aws-app-vm.git?ref=v0.0.2"
+  source = "github.com/JeffGiroux/terraform-f5xc-aws-app-vm.git?ref=v0.1.0"
   before_hook "pre-check" {
       commands = ["apply","plan"]
       execute  = ["./pre-check.sh"]
@@ -27,14 +27,15 @@ dependency "xc_site" {
 }
 
 inputs = {
-  instanceSuffix       = "1"
-  site_type            = dependency.xc_site.outputs.site_type
-  site_name            = dependency.xc_site.outputs.site_name
-  awsRegion            = dependency.infrastructure.outputs.awsRegion
-  awsAz1               = dependency.infrastructure.outputs.awsAz1
-  spokeWorkloadSubnets = dependency.infrastructure.outputs.spokeWorkloadSubnets
-  spokeSecurityGroup   = dependency.infrastructure.outputs.spokeSecurityGroup
-  f5demo_app           = "text"
-  f5demo_nodename      = "AWS Demo App Site-1"
-  f5demo_color         = "ed7b0c"
+  instance_suffix         = "1"
+  site_type               = dependency.xc_site.outputs.site_type
+  site_name               = dependency.xc_site.outputs.site_name
+  aws_region              = dependency.infrastructure.outputs.aws_region
+  aws_az1                 = dependency.infrastructure.outputs.aws_az1
+  spoke_workload_subnets  = dependency.infrastructure.outputs.spoke_workload_subnets
+  spoke_security_group    = dependency.infrastructure.outputs.spoke_security_group
+  f5demo_app              = "text"
+  f5demo_nodename         = "AWS Demo App Site-1"
+  f5demo_color            = "ed7b0c"
+  num_worker_nodes_per_az = 0
 }
