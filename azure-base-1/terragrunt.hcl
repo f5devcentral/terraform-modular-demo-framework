@@ -8,7 +8,7 @@ include "appstack" {
   path = find_in_parent_folders("appstack.hcl")
 }
 terraform {
-  source = "github.com/mjmenger/terraform-f5xc-azure-base.git?ref=v0.1.0rc2"
+  source = "github.com/mjmenger/terraform-f5xc-azure-base.git?ref=v0.1.0"
 }
 
 inputs = {
