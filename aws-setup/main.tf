@@ -15,7 +15,7 @@ locals {
     cloud_accounts = jsondecode(data.http.cloud_accounts.response_body).cloudAccounts
     aws_accounts   = [for account in local.cloud_accounts: account if account.provider == "AWS"]
     deployment     = jsondecode(data.http.deployment.response_body).deployment
-    namespace      = "dcma"
+    namespace      = "system"
 }
 
 resource "volterra_cloud_credentials" "example" {
@@ -29,4 +29,14 @@ resource "volterra_cloud_credentials" "example" {
       }
     }
   }
+}
+
+terraform {
+  required_version = ">= 0.12.7"
+
+  required_providers {
+    volterra = {
+      source = "volterraedge/volterra"
+     }
+    }
 }
