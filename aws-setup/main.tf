@@ -36,8 +36,8 @@ resource "volterra_cloud_credentials" "aws" {
   aws_secret_key {
     access_key = local.aws_accounts.0.apiKey
     secret_key {
-      blindfold_secret_info_internal {
-        location = format("string:///%s",base64encode(local.aws_accounts.0.apiSecret))
+      clear_secret_info {
+        url = format("string:///%s",base64encode(local.aws_accounts.0.apiSecret))
       }
     }
   }
