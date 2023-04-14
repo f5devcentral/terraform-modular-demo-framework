@@ -11,6 +11,10 @@ terraform {
   source = "github.com/mjmenger/terraform-f5xc-azure-base.git?ref=v0.1.0"
 }
 
+include "gitops-lab" {
+  path = find_in_parent_folders("gitops-lab.hcl")
+}
+
 inputs = {
   azure_region                  = "westus2"
   instance_suffix               = "env1"

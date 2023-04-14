@@ -1,9 +1,11 @@
 include "root" {
   path = find_in_parent_folders()
 }
-include "azure" {
-  path = find_in_parent_folders("azure.hcl")
+
+include "gitops-lab" {
+  path = find_in_parent_folders("gitops-lab.hcl")
 }
+
 terraform {
   source = "github.com/mjmenger/terraform-f5xc-azure-discovered-cluster.git?ref=v0.1.0"
   before_hook "pre-check" {
@@ -14,15 +16,15 @@ terraform {
 
 
 dependencies {
-  paths = ["../azure-base-2","../azure-site-2"]
+  paths = ["../azure-base-1","../azure-appstack-site"]
 }
 
 dependency "infrastructure" {
-  config_path = "../azure-base-2"
+  config_path = "../azure-base-1"
 }
 
 dependency "xc_site" {
-  config_path = "../azure-site-2"
+  config_path = "../azure-appstack-site"
 }
 
 inputs = {

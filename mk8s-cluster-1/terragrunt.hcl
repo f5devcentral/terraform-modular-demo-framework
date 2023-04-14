@@ -11,6 +11,10 @@ include "appstack" {
   path = find_in_parent_folders("appstack.hcl")
 }
 
+include "gitops-lab" {
+  path = find_in_parent_folders("gitops-lab.hcl")
+}
+
  terraform {}
 
 inputs = {

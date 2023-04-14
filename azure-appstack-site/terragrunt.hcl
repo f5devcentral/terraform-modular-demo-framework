@@ -11,6 +11,10 @@ terraform {
   source = "github.com/piyerf5/terraform-f5xc-azure-appstack-site.git?ref=v0.1.0"
 }
 
+include "gitops-lab" {
+  path = find_in_parent_folders("gitops-lab.hcl")
+}
+
 dependencies {
   paths = ["${get_path_to_repo_root()}//azure-base-1","${get_path_to_repo_root()}//mk8s-cluster-1"]
 }
