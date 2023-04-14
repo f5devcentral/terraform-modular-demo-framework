@@ -4,11 +4,12 @@ include "root" {
 include "aws" {
   path = find_in_parent_folders("aws.hcl")
 }
-
 include "aws-base" {
   path = find_in_parent_folders("aws-base.hcl")
 }
-
+dependencies {
+  paths = ["${get_path_to_repo_root()}/aws-setup"]
+}
 terraform {
   source = "github.com/mjmenger/terraform-f5xc-aws-base.git?ref=v0.1.1"
 }
