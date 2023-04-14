@@ -10,10 +10,10 @@ data http deployment {
         Accept = "application/json"
     }
 }
-input volterra_cloud_cred_aws {
+variable volterra_cloud_cred_aws {
   default = "aws"
 }
-input volterra_cloud_cred_azure {
+variable volterra_cloud_cred_azure {
   default = "azure"
 }
 output volterra_cloud_cred_aws {
@@ -27,7 +27,7 @@ locals {
     aws_accounts          = [for account in local.cloud_accounts: account if account.provider == "AWS"]
     deployment            = jsondecode(data.http.deployment.response_body).deployment
     namespace             = "system"
-    aws_cloud_credential_name = format("aws-%s",local.deployment.id)
+    aws_cloud_credential_name = format("%s-%s",var.volterra_cloud_cred_aws,local.deployment.id)
 }
 
 resource "volterra_cloud_credentials" "aws" {
