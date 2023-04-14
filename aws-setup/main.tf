@@ -10,16 +10,28 @@ data http deployment {
         Accept = "application/json"
     }
 }
-
+input volterra_cloud_cred_aws {
+  default = "aws"
+}
+input volterra_cloud_cred_azure {
+  default = "azure"
+}
+output volterra_cloud_cred_aws {
+  value = volterra_cloud_credentials.aws.name
+}
+output volterra_cloud_cred_azure {
+  value = var.volterra_cloud_cred_azure
+}
 locals {
-    cloud_accounts = jsondecode(data.http.cloud_accounts.response_body).cloudAccounts
-    aws_accounts   = [for account in local.cloud_accounts: account if account.provider == "AWS"]
-    deployment     = jsondecode(data.http.deployment.response_body).deployment
-    namespace      = "system"
+    cloud_accounts        = jsondecode(data.http.cloud_accounts.response_body).cloudAccounts
+    aws_accounts          = [for account in local.cloud_accounts: account if account.provider == "AWS"]
+    deployment            = jsondecode(data.http.deployment.response_body).deployment
+    namespace             = "system"
+    aws_cloud_credential_name = format("aws-%s",local.deployment.id)
 }
 
-resource "volterra_cloud_credentials" "example" {
-  name      = format("aws-%s",local.deployment.id)
+resource "volterra_cloud_credentials" "aws" {
+  name      = local.aws_cloud_credential_name
   namespace = local.namespace
   aws_secret_key {
     access_key = local.aws_accounts.0.apiKey
@@ -33,7 +45,6 @@ resource "volterra_cloud_credentials" "example" {
 
 terraform {
   required_version = ">= 0.12.7"
-
   required_providers {
     volterra = {
       source = "volterraedge/volterra"
