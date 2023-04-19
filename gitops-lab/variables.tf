@@ -25,6 +25,10 @@ variable "site_name" {
   type        = string
   description = "Your F5 XC AppStack site name"
 }
+variable "xc_sitetoken" {
+  type = string
+  description = "Your F5 XC API token"
+}
 variable "api_p12_file" {
   type        = string
   description = "The path to your F5 XC API certificate and key file in p12 format"

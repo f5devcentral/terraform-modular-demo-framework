@@ -1,0 +1,24 @@
+## snake case 
+project_prefix: ${prefix}
+resource_owner: ${resourceowner}
+useremail: ${useremail}
+namespace: ${namespace}
+trusted_ip: 0.0.0.0/0
+auto_trust_localip: false
+volterra_tenant: f5-sales-demo-rljyvvmw
+volterra_cloud_cred_aws: ${awscloudcred}
+volterra_cloud_cred_azure: ${azurecloudcred}
+aws_region: us-east-2
+aws_region2: us-west-2
+azure_region: westus2
+azure_region2: eastus
+ssh_key: ${awsec2keyname}
+ssh_public_key: ${sshpublickey}
+xc_api_url: https://f5-sales-demo.console.ves.volterra.io/api
+xc_tenant: f5-sales-demo
+project_id: thegooglecomputeplatformprojecttouse
+xc_sitetoken: yourvolterraapitoken
+client_id_azurespn: ${azure_spn_clientid}
+client_id_password: ${azure_spn_password}
+domain_name: ${domainname}
+create_jumphost: false
