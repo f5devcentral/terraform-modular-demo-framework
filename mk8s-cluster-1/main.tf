@@ -12,7 +12,7 @@ resource "volterra_k8s_cluster" "example" {
   use_default_cluster_roles = true
 
   // One of the arguments from this list "cluster_scoped_access_deny cluster_scoped_access_permit" must be set
-  cluster_scoped_access_deny = true
+  cluster_scoped_access_permit = true
 
   // One of the arguments from this list "no_global_access global_access_enable" must be set
   global_access_enable = true
