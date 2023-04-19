@@ -87,10 +87,6 @@ variable "lab_domain" {
   type        = string
   description = "The domain name for the lab"
 }
-variable "api_url" {
-  type        = string
-  description = "Your F5 XC tenant"
-}
 variable "namespace" {
   type        = string
   description = "Volterra app namespace where the objects will be created. This cannot be system or shared ns."

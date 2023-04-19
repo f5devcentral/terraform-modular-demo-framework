@@ -1,6 +1,4 @@
 provider "volterra" {
-  api_p12_file = var.api_p12_file
-  url          = var.api_url
 }
 
 provider "kubernetes" {
