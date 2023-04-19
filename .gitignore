@@ -45,3 +45,6 @@ waitfornext/garbage.txt
 terragrunt.hcl*
 params.yaml
 .sops.yaml
+*.jwt
+*.p12
+*kubeconfig*.yaml
