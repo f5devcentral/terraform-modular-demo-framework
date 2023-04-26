@@ -2,8 +2,12 @@
   value = volterra_http_loadbalancer.lb_https
 } */
 
-output "xc_namespace" {
+output "namespace" {
   value = var.namespace
+}
+
+output "volt_ic_namespace" {
+  value = var.volt_ic_namespace
 }
 
 output "argocd_password" {
