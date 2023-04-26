@@ -2,12 +2,14 @@ resource "kubernetes_namespace" "volt_ic_namespace" {
   metadata {
     name = var.volt_ic_namespace
   }
+  depends_on = [local_file.kubeconfig]
 }
 
 resource "kubernetes_namespace" "student_namespace" {
   metadata {
     name = var.namespace
   }
+  depends_on = [local_file.kubeconfig]
 }
 
 resource "kubernetes_secret" "volt_ic_secret" {
@@ -21,7 +23,7 @@ resource "kubernetes_secret" "volt_ic_secret" {
     ApiKey  = data.external.api_p12.result.key
   }
   type       = "Opaque"
-  depends_on = [kubernetes_namespace.volt_ic_namespace]
+  depends_on = [kubernetes_namespace.volt_ic_namespace, local_file.kubeconfig]
 }
 
 
@@ -34,8 +36,8 @@ resource "kubernetes_secret" "nic_default_tls_secret" {
     "tls.crt" = tls_self_signed_cert.nic_self_signed_cert.cert_pem
     "tls.key" = tls_private_key.nic_private_key.private_key_pem
   }
-
   type = "kubernetes.io/tls"
+  depends_on = [kubernetes_namespace.student_namespace]
 }
 
 resource "kubernetes_secret" "brewz_tls_secret" {
@@ -47,8 +49,8 @@ resource "kubernetes_secret" "brewz_tls_secret" {
     "tls.crt" = tls_self_signed_cert.brewz_self_signed_cert.cert_pem
     "tls.key" = tls_private_key.brewz_private_key.private_key_pem
   }
-
   type = "kubernetes.io/tls"
+  depends_on = [kubernetes_namespace.student_namespace]
 }
 
 resource "kubernetes_secret" "nginx_pull_secret" {
@@ -70,4 +72,5 @@ resource "kubernetes_secret" "nginx_pull_secret" {
       }
     })
   }
+  depends_on = [kubernetes_namespace.student_namespace]
 }

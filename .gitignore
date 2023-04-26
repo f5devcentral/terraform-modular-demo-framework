@@ -49,3 +49,4 @@ params.yaml
 *.p12
 *kubeconfig*.yaml
 tf_output_vars.yaml
+kube-config
