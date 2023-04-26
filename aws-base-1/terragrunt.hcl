@@ -1,7 +1,6 @@
 include "root" {
   path = find_in_parent_folders()
 }
-
 include "aws" {
   path = find_in_parent_folders("aws.hcl")
 }
@@ -16,6 +15,10 @@ include "aws-base" {
 
 include "gitops-lab" {
   path = find_in_parent_folders("gitops-lab.hcl")
+}
+
+dependencies {
+  paths = ["${get_path_to_repo_root()}/udf-env-setup"]
 }
 
 terraform {

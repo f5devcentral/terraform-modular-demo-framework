@@ -53,18 +53,10 @@ sequenceDiagram
 
 ```mermaid
 graph TD
-  aws-vpc-site-1-->aws-base-1;
-  aws-vpc-site-2-->aws-base-2;
-  azure-site-1-->azure-base-1;
-  azure-site-2-->azure-base-2;
-  waitfor-aws-vpc-->aws-base-1;
-  waitfor-aws-vpc-->aws-vpc-site-1;
-  waitfor-aws-vpc-->aws-base-2;
-  waitfor-aws-vpc-->aws-vpc-site-2;
-  waitfornext-->azure-base-1;
-  waitfornext-->azure-site-1;
-  waitfornext-->azure-base-2;
-  waitfornext-->azure-site-2;
-
+  aws-appstack-site-1 --> aws-base-1;
+  aws-appstack-site-1 --> mk8s-cluster-1;
+  aws-base-1 --> udf-env-setup;
+  gitops-lab --> aws-appstack-site-1;
+  mk8s-cluster-1 --> udf-env-setup;
 ```
 
