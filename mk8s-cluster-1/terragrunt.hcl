@@ -13,7 +13,9 @@ include "gitops-lab" {
 dependencies {
   paths = ["${get_path_to_repo_root()}/udf-env-setup"]
 }
-terraform {}
+terraform {
+  source = "github.com/piyerf5/terraform-f5xc-mk8s-cluster.git?ref=v0.0.1"
+}
 
 inputs = {
     instance_suffix = "1"
