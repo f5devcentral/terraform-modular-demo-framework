@@ -33,19 +33,19 @@ variable "api_p12_passphrase" {
   type        = string
   description = "The passphrase for the p12 certificate and key"
 }
-variable "argo_host_suffix" {
+variable "argo_host_prefix" {
   type        = string
-  description = "The suffix to be used for the argocd site"
+  description = "The prefix to be used for the argocd site"
   default = "argocd"
 }
-variable "grafana_host_suffix" {
+variable "grafana_host_prefix" {
   type        = string
-  description = "The suffix to be used for the grafana site"
+  description = "The prefix to be used for the grafana site"
   default = "grafana"
 }
-variable "brewz_host_suffix" {
+variable "brewz_host_prefix" {
   type        = string
-  description = "The suffix to be used for the brewz site"
+  description = "The prefix to be used for the brewz site"
   default = "brewz"
 }
 variable "nic_default_cert_secret_name" {
