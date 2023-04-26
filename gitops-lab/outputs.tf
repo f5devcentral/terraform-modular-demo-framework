@@ -14,3 +14,7 @@ output "argocd_password" {
   value = data.kubernetes_secret.argocd_password.data.password
   sensitive = true
 }
+
+output "argocd_lb_ip_address" {
+  value = jsondecode(data.http.get_public_ips.response_body).items[0].get_spec.ip
+}

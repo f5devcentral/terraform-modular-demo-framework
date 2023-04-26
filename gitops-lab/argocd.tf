@@ -8,4 +8,5 @@ resource "helm_release" "argocd" {
   values = [
     "${file("argocd-values.yaml")}"
   ]
+  depends_on = [kubernetes_namespace.student_namespace]
 }
