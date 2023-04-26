@@ -4,6 +4,12 @@ resource "kubernetes_namespace" "volt_ic_namespace" {
   }
 }
 
+resource "kubernetes_namespace" "student_namespace" {
+  metadata {
+    name = var.namespace
+  }
+}
+
 resource "kubernetes_secret" "volt_ic_secret" {
   metadata {
     name      = var.volt_ic_secret_name
