@@ -4,6 +4,7 @@ include "root" {
 include "aws" {
   path = find_in_parent_folders("aws.hcl")
 }
+
 include "appstack" {
   path = find_in_parent_folders("appstack.hcl")
 }
@@ -15,9 +16,15 @@ include "gitops-lab" {
 include "aws-base" {
   path = find_in_parent_folders("aws-base.hcl")
 }
+
+include "gitops-lab" {
+  path = find_in_parent_folders("gitops-lab.hcl")
+}
+
 dependencies {
   paths = ["${get_path_to_repo_root()}/udf-env-setup"]
 }
+
 terraform {
   source = "github.com/f5devcentral/terraform-f5xc-aws-base.git?ref=v0.1.1"
 }

@@ -5,11 +5,11 @@ locals {
   nginx_pull_secret_server   = var.nginx_pull_secret_server
   nginx_pull_secret_username = file(var.nginx_jwt)
   nginx_pull_secret_password = "none"
-  argocd_fqdn                = format("%s-%s.%s", var.namespace, var.argo_host_suffix, var.lab_domain)
+  argocd_fqdn                = format("%s-%s.%s", var.argo_host_prefix, var.namespace, var.lab_domain)
   argocd_k8s_service         = format("argocd-server.%s", var.namespace)
-  grafana_fqdn               = format("%s-%s.%s", var.namespace, var.grafana_host_suffix, var.lab_domain)
+  grafana_fqdn               = format("%s-%s.%s", var.grafana_host_prefix, var.namespace, var.lab_domain)
   grafana_k8s_service        = format("grafana.%s", var.namespace)
-  brewz_fqdn                 = format("%s-%s.%s", var.namespace, var.brewz_host_suffix, var.lab_domain)
+  brewz_fqdn                 = format("%s-%s.%s", var.brewz_host_prefix, var.namespace, var.lab_domain)
 
   #XC LB
   apps = {

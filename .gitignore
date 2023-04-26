@@ -48,3 +48,4 @@ params.yaml
 *.jwt
 *.p12
 *kubeconfig*.yaml
+tf_output_vars.yaml
