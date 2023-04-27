@@ -11,7 +11,9 @@ include "appstack" {
   path = find_in_parent_folders("appstack.hcl")
 }
 
- terraform {}
+ terraform {
+  source = "github.com/piyerf5/terraform-f5xc-mk8s-cluster.git?ref=v0.0.1"
+ }
 
 inputs = {
     instance_suffix = "1"
