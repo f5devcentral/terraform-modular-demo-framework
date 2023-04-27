@@ -58,7 +58,7 @@ resource "kubernetes_secret" "xc_lb_lab_tls_secret" {
     name      = var.xc_lb_lab_tls_secret_name
     namespace = var.namespace
   }
-  data = {
+  binary_data = {
     "tls.crt" = var.xc_lb_lab_tls_cert
     "tls.key" = var.xc_lb_lab_tls_key
   }
