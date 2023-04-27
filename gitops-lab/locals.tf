@@ -3,7 +3,7 @@ locals {
   project_prefix             = var.project_prefix
   build_suffix               = random_id.build_suffix.hex
   nginx_pull_secret_server   = var.nginx_pull_secret_server
-  nginx_pull_secret_username = file(var.nginx_jwt)
+  nginx_pull_secret_username = var.nginx_jwt
   nginx_pull_secret_password = "none"
   argocd_fqdn                = format("%s-%s.%s", var.argo_host_prefix, var.namespace, var.lab_domain)
   argocd_k8s_service         = format("argocd-server.%s", var.namespace)

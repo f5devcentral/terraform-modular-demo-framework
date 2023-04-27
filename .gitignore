@@ -48,3 +48,4 @@ params.yaml
 backend.tf
 ef.*.demo.yaml
 !gitops-lab/terragrunt.hcl
+envconfig.demo.yaml
