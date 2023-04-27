@@ -1,14 +1,11 @@
 #!/bin/bash
 
-# terraform init
-# terraform apply --auto-approve
+terragrunt run-all apply --terragrunt-modules-that-include ./env-setup.hcl
 
-# terraform output -json | jq 'with_entries(.value = .value.value | select(.value != null))' | yq e -P
+terragrunt run-all apply --terragrunt-modules-that-include ./appstack.hcl
 
-terragrunt run-all apply
+terragrunt output-all -json --terragrunt-include-dir aws-appstack-site-1 --terragrunt-strict-include | awk '!/\[\w+\]/' | jq 'with_entries(.value = .value.value | select(.value != null))' | yq e -P | tee tf_output_vars.yaml 
 
-terragrunt output-all -json --terragrunt-include-dir aws-appstack-site-1 --terragrunt-strict-include | jq 'with_entries(.value = .value.value | select(.value != null))' | yq e -P > tf_output_vars.yaml 
+terragrunt output-all -json --terragrunt-include-dir mk8s-cluster-1 --terragrunt-strict-include | awk '!/\[\w+\]/' | jq 'with_entries(.value = .value.value | select(.value != null))' | yq e -P | tee -a tf_output_vars.yaml
 
-terragrunt output-all -json --terragrunt-include-dir mk8s-cluster-1 --terragrunt-strict-include | jq 'with_entries(.value = .value.value | select(.value != null))' | yq e -P >> tf_output_vars.yaml
-
-terragrunt output-all -json --terragrunt-include-dir gitops-lab --terragrunt-strict-include | jq 'with_entries(.value = .value.value | select(.value != null))' | yq e -P >> tf_output_vars.yaml
+terragrunt output-all -json --terragrunt-include-dir gitops-lab --terragrunt-strict-include | awk '!/\[\w+\]/' | jq 'with_entries(.value = .value.value | select(.value != null))' | yq e -P | tee -a tf_output_vars.yaml
