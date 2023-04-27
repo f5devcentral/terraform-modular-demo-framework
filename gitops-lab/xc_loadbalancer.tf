@@ -69,13 +69,18 @@ resource "volterra_http_loadbalancer" "lb_https" {
       }
     }
   }
-  https_auto_cert {
-    add_hsts              = false
-    http_redirect         = true
-    no_mtls               = true
-    enable_path_normalize = true
-    tls_config {
-      default_security = true
+  https {
+    http_redirect = false
+    add_hsts = false
+    tls_cert_params {
+      tls_config {
+        default_security = true
+      }
+      no_mtls = true
+      certificates  {
+        name = "wildcard-labs-f5demos-com"
+        namespace = "shared"
+      }
     }
   }
 }
