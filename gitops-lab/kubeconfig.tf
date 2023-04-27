@@ -3,7 +3,7 @@ data "http" "kubeconfig" {
   url    = format("https://%s.console.ves.volterra.io/api/web/namespaces/system/sites/%s/global-kubeconfigs", var.xc_tenant, var.site_name)
   request_headers = {
     Accept        = "application/json"
-    Authorization = format("APIToken %s", var.xc_sitetoken)
+    Authorization = format("APIToken %s", var.volterra_token)
   }
   request_body = jsonencode({
     expiration_timestamp = timeadd(timestamp(), "720h") # 30 days

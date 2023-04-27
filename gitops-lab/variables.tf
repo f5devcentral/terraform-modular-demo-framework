@@ -25,7 +25,7 @@ variable "site_name" {
   description = "Your F5 XC AppStack site name"
 }
 
-variable "xc_sitetoken" {
+variable "volterra_token" {
   type        = string
   description = "Your F5 XC API token"
 }

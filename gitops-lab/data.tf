@@ -15,7 +15,7 @@ data "http" "get_public_ips" {
   url    = format("https://%s.console.ves.volterra.io/api/config/namespaces/shared/public_ips?report_fields", var.xc_tenant)
   request_headers = {
     Accept        = "application/json"
-    Authorization = format("APIToken %s", var.xc_sitetoken)
+    Authorization = format("APIToken %s", var.volterra_token)
   }
 }
 
