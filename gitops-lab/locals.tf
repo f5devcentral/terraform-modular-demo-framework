@@ -10,6 +10,7 @@ locals {
   grafana_fqdn               = format("%s-%s.%s", var.grafana_host_prefix, var.namespace, var.lab_domain)
   grafana_k8s_service        = format("grafana.%s", var.namespace)
   brewz_fqdn                 = format("%s-%s.%s", var.brewz_host_prefix, var.namespace, var.lab_domain)
+  tenant_ip_name             = jsondecode(data.http.get_public_ips.response_body).items[0].name
 
   #XC LB
   apps = {

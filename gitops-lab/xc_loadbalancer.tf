@@ -45,7 +45,13 @@ resource "volterra_http_loadbalancer" "lb_https" {
   namespace                       = var.namespace
   description                     = format("HTTPS loadbalancer object for %s origin server", local.project_prefix)
   domains                         = [each.value.domain]
-  advertise_on_public_default_vip = true
+  advertise_on_public_default_vip = false
+  advertise_on_public {
+    public_ip {
+      name      = local.tenant_ip_name
+      namespace = "shared"
+    }
+  }
   default_route_pools {
     pool {
       name      = volterra_origin_pool.op[each.key].name
@@ -71,14 +77,14 @@ resource "volterra_http_loadbalancer" "lb_https" {
   }
   https {
     http_redirect = false
-    add_hsts = false
+    add_hsts      = false
     tls_cert_params {
       tls_config {
         default_security = true
       }
       no_mtls = true
-      certificates  {
-        name = "wildcard-labs-f5demos-com"
+      certificates {
+        name      = "wildcard-labs-f5demos-com"
         namespace = "shared"
       }
     }
