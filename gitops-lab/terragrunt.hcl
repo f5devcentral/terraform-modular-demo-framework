@@ -6,6 +6,10 @@ include "aws" {
   path = find_in_parent_folders("aws.hcl")
 }
 
+include "appstack" {
+  path = find_in_parent_folders("appstack.hcl")
+}
+
 terraform {
   before_hook "pre-check" {
     commands = ["apply", "plan"]
