@@ -1,11 +1,13 @@
 variable "volt_ic_namespace" {
   type        = string
   description = "Namespace where the XC ingress controller objects will be created."
+  default     = "volt-ic"
 }
 
 variable "volt_ic_secret_name" {
   type        = string
   description = "Name of the secret that XC ingress controller will use when calling the XC APIs."
+  default     = "volt-ic-secret"
 }
 
 variable "nginx_jwt" {
@@ -26,16 +28,6 @@ variable "site_name" {
 variable "xc_sitetoken" {
   type        = string
   description = "Your F5 XC API token"
-}
-
-variable "api_p12_file" {
-  type        = string
-  description = "The path to your F5 XC API certificate and key file in p12 format"
-}
-
-variable "api_p12_passphrase" {
-  type        = string
-  description = "The passphrase for the p12 certificate and key"
 }
 
 variable "argo_host_prefix" {
