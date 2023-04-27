@@ -18,3 +18,7 @@ output "argocd_password" {
 output "argocd_lb_ip_address" {
   value = jsondecode(data.http.get_public_ips.response_body).items[0].get_spec.ip
 }
+
+output "xc_lb_lab_tls_secret_name" {
+  value = var.xc_lb_lab_tls_secret_name
+}

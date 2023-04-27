@@ -53,6 +53,19 @@ resource "kubernetes_secret" "brewz_tls_secret" {
   depends_on = [kubernetes_namespace.student_namespace]
 }
 
+resource "kubernetes_secret" "xc_lb_lab_tls_secret" {
+  metadata {
+    name      = var.xc_lb_lab_tls_secret_name
+    namespace = var.namespace
+  }
+  data = {
+    "tls.crt" = var.xc_lb_lab_tls_cert
+    "tls.key" = var.xc_lb_lab_tls_key
+  }
+  type = "kubernetes.io/tls"
+  depends_on = [kubernetes_namespace.student_namespace]
+}
+
 resource "kubernetes_secret" "nginx_pull_secret" {
   metadata {
     name      = var.nginx_pull_secret_name

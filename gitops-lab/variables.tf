@@ -122,3 +122,19 @@ variable "project_prefix" {
   type        = string
   description = "This value is inserted at the beginning of each XC object (alpha-numeric, no special character)"
 }
+
+variable "xc_lb_lab_tls_cert" {
+  type        = string
+  description = "The certificate to use for the lab load balancers"
+}
+
+variable "xc_lb_lab_tls_key" {
+  type        = string
+  description = "The key to use for the lab load balancers"
+}
+
+variable "xc_lb_lab_tls_secret_name" {
+  type        = string
+  description = "The name of the secret to create to use for the lab load balancers"
+  default     = "xc-lb-lab-tls-secret"
+}
