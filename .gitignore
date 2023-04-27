@@ -45,3 +45,5 @@ waitfornext/garbage.txt
 terragrunt.hcl*
 params.yaml
 .sops.yaml
+backend.tf
+ef.*.demo.yaml
