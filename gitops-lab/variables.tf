@@ -101,6 +101,7 @@ variable "nginx_pull_secret_server" {
 variable "lab_domain" {
   type        = string
   description = "The domain name for the lab"
+  default     = "labs.f5demos.com"
 }
 
 variable "namespace" {
