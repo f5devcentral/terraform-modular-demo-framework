@@ -19,8 +19,8 @@ resource "kubernetes_secret" "volt_ic_secret" {
   }
 
   binary_data = {
-    ApiCert = data.external.api_p12.result.cert
-    ApiKey  = data.external.api_p12.result.key
+    ApiCert = var.xc_service_cred_cert
+    ApiKey  = var.xc_service_cred_key
   }
   type       = "Opaque"
   depends_on = [kubernetes_namespace.volt_ic_namespace, local_file.kubeconfig]

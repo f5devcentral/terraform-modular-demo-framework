@@ -1,7 +1,3 @@
-/* output "xc_lb_values" {
-  value = volterra_http_loadbalancer.lb_https
-} */
-
 output "namespace" {
   value = var.namespace
 }

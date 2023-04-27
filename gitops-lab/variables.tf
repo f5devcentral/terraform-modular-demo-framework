@@ -123,6 +123,16 @@ variable "project_prefix" {
   description = "This value is inserted at the beginning of each XC object (alpha-numeric, no special character)"
 }
 
+variable "xc_service_cred_cert" {
+  type        = string
+  description = "The certificate to use for the xc ingress controller api calls"
+}
+
+variable "xc_service_cred_key" {
+  type        = string
+  description = "The key to use for the xc ingress controller api calls"
+}
+
 variable "xc_lb_lab_tls_cert" {
   type        = string
   description = "The certificate to use for the lab load balancers"
