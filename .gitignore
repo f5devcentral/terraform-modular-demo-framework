@@ -47,3 +47,4 @@ params.yaml
 .sops.yaml
 backend.tf
 ef.*.demo.yaml
+!gitops-lab/terragrunt.hcl
