@@ -65,7 +65,7 @@ resource local_file envconfig {
     useremail = local.deployment.deployer
     awsec2keyname = local.team_name
     sshpublickey = var.ssh_public_key
-    domainname = format("%s.sales-demo.f5demos.com",local.team_name)
+    domainname = format("%s.labs.f5demos.com",local.team_name)
     azure_spn_clientid = "abc"
     azure_spn_password = "def"
   })
