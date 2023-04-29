@@ -40,7 +40,7 @@ data http deployment {
         Accept = "application/json"
     }
 }
-# CREATE EPHEMERAL DISTRIBUTED CLOUD CLOUD CREDENTIAL
+# CREATE EPHEMERAL DISTRIBUTED CLOUD CREDENTIAL
 resource "volterra_cloud_credentials" "aws" {
   name      = local.aws_cloud_credential_name
   namespace = local.cloud_credential_namespace
