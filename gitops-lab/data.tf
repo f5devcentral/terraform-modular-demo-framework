@@ -24,3 +24,12 @@ data "volterra_http_loadbalancer_state" "argocd_lb_state" {
   namespace  = var.namespace
   depends_on = [volterra_http_loadbalancer.lb_https]
 }
+
+data "http" "namespaces" {
+  method = "GET"
+  url    = format("https://%s.console.ves.volterra.io/api/web/namespaces", var.xc_tenant)
+  request_headers = {
+    Accept        = "application/json"
+    Authorization = format("APIToken %s", var.volterra_token)
+  }
+}

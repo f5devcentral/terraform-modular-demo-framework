@@ -11,6 +11,11 @@ locals {
   grafana_k8s_service        = format("grafana.%s", var.namespace)
   brewz_fqdn                 = format("%s-%s.%s", var.brewz_host_prefix, var.namespace, var.lab_domain)
   tenant_ip_name             = jsondecode(data.http.get_public_ips.response_body).items[0].name
+  namespaces                 = jsondecode(data.http.namespaces.response_body).items
+  ns_exists                  = try(
+                                index(local.namespaces.*.name, var.namespace) > 0 ? true : false,
+                                false
+                              )
 
   #XC LB
   apps = {
