@@ -40,7 +40,7 @@ data http deployment {
         Accept = "application/json"
     }
 }
-# CREATE EPHEMERAL DISTRIBUTED CLOUD CLOUD CREDENTIAL
+# CREATE EPHEMERAL DISTRIBUTED CLOUD CREDENTIAL
 resource "volterra_cloud_credentials" "aws" {
   name      = local.aws_cloud_credential_name
   namespace = local.cloud_credential_namespace
@@ -59,13 +59,12 @@ resource local_file envconfig {
   content = templatefile("/home/ubuntu/terraform-modular-demo-framework/udf-env-setup/ef.inputs.demo.template.yaml",{
     prefix = local.team_name,
     resourceowner = local.env_config.user_namespace
-    namespace = local.team_name
     awscloudcred = local.aws_cloud_credential_name
     azurecloudcred = local.azure_cloud_credential_name
     useremail = local.deployment.deployer
     awsec2keyname = local.team_name
     sshpublickey = var.ssh_public_key
-    domainname = format("%s.sales-demo.f5demos.com",local.team_name)
+    domainname = format("%s.labs.f5demos.com",local.team_name)
     azure_spn_clientid = "abc"
     azure_spn_password = "def"
   })

@@ -1,0 +1,12 @@
+repoServer:
+  containerSecurityContext:
+    seccompProfile:
+      type: Unconfined
+configs:
+  cm:
+    resource.customizations: |
+      Service:
+        health.lua: |
+          hs = {}
+          hs.status = "Healthy"
+          return hs

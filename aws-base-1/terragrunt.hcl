@@ -12,8 +12,12 @@ include "aws-base" {
   path = find_in_parent_folders("aws-base.hcl")
 }
 
+include "gitops-lab" {
+  path = find_in_parent_folders("gitops-lab.hcl")
+}
+
 terraform {
-  source = "github.com/mjmenger/terraform-f5xc-aws-base.git?ref=v0.1.1"
+  source = "github.com/piyerf5/terraform-f5xc-aws-base.git?ref=v0.1.1"
 }
 
 inputs = {

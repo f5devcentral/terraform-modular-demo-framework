@@ -2,7 +2,6 @@
 project_prefix: ${prefix}
 resource_owner: ${resourceowner}
 useremail: ${useremail}
-namespace: ${namespace}
 trusted_ip: 0.0.0.0/0
 auto_trust_localip: false
 volterra_tenant: f5-sales-demo-rljyvvmw
