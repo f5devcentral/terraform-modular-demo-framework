@@ -32,4 +32,13 @@ data "http" "namespaces" {
     Accept        = "application/json"
     Authorization = format("APIToken %s", var.volterra_token)
   }
+  lifecycle {
+    postcondition {
+      condition = try(
+                    index(jsondecode(self.response_body).items.*.name, var.namespace) > 0 ? true : false,
+                    false
+      )
+      error_message = "Namespace does not exist"
+    }
+  }
 }
