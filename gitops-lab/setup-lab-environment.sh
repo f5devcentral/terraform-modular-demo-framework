@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ -z "$TF_VAR_namespace" ]]; then
+    echo "Must provide TF_VAR_namespace in environment" 1>&2
+    exit 1
+fi
+
 cd ~/terraform-modular-demo-framework
 
 terragrunt run-all apply --terragrunt-modules-that-include ./env-setup.hcl
