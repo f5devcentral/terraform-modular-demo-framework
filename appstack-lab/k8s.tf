@@ -3,4 +3,3 @@ resource "kubernetes_namespace" "student_namespace" {
     name = var.namespace
   }
 }
-
