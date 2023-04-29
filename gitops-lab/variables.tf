@@ -141,3 +141,8 @@ variable "xc_lb_lab_tls_secret_name" {
   description = "The name of the secret to create to use for the lab load balancers"
   default     = "xc-lb-lab-tls-secret"
 }
+
+variable "kubeconfig_file" {
+  type        = string
+  description = "The file path of the kubeconfig to use"
+}

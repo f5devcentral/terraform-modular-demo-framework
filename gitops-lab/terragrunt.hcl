@@ -37,6 +37,10 @@ dependency "cluster" {
   config_path = "${get_path_to_repo_root()}/mk8s-cluster-1"
 }
 
+dependency "get_kubeconfig" {
+  config_path = "../get-kubeconfig"
+}
+
 inputs = {
   instance_suffix        = "1"
   site_type              = dependency.xc_site.outputs.site_type
@@ -46,4 +50,5 @@ inputs = {
   spoke_workload_subnets = dependency.infrastructure.outputs.spoke_workload_subnets
   spoke_security_group   = dependency.infrastructure.outputs.spoke_security_group
   k8s_cluster_name       = dependency.cluster.outputs.k8s_cluster_name
+  kubeconfig_file        = dependency.get_kubeconfig.outputs.kubeconfig_file
 }

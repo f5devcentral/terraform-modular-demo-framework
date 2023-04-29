@@ -2,13 +2,13 @@ provider "volterra" {
 }
 
 provider "kubernetes" {
-  config_path    = local_file.kubeconfig.filename
+  config_path    = var.kubeconfig_file
   config_context = var.site_name
 }
 
 provider "helm" {
   kubernetes {
-    config_path = local_file.kubeconfig.filename
+    config_path = var.kubeconfig_file
   }
 }
 

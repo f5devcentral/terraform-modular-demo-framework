@@ -59,7 +59,6 @@ resource local_file envconfig {
   content = templatefile("/home/ubuntu/terraform-modular-demo-framework/udf-env-setup/ef.inputs.demo.template.yaml",{
     prefix = local.team_name,
     resourceowner = local.env_config.user_namespace
-    namespace = local.team_name
     awscloudcred = local.aws_cloud_credential_name
     azurecloudcred = local.azure_cloud_credential_name
     useremail = local.deployment.deployer

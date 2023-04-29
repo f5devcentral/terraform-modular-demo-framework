@@ -50,3 +50,4 @@ ef.*.demo.yaml
 !gitops-lab/terragrunt.hcl
 envconfig.demo.yaml
 tf_output_vars.yaml
+gitops_lab_vars.demo.yaml

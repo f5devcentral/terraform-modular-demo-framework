@@ -2,14 +2,12 @@ resource "kubernetes_namespace" "volt_ic_namespace" {
   metadata {
     name = var.volt_ic_namespace
   }
-  depends_on = [local_file.kubeconfig]
 }
 
 resource "kubernetes_namespace" "student_namespace" {
   metadata {
     name = var.namespace
   }
-  depends_on = [local_file.kubeconfig]
 }
 
 resource "kubernetes_secret" "volt_ic_secret" {
@@ -23,7 +21,7 @@ resource "kubernetes_secret" "volt_ic_secret" {
     ApiKey  = var.xc_service_cred_key
   }
   type       = "Opaque"
-  depends_on = [kubernetes_namespace.volt_ic_namespace, local_file.kubeconfig]
+  depends_on = [kubernetes_namespace.volt_ic_namespace]
 }
 
 

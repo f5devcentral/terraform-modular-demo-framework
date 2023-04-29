@@ -17,3 +17,7 @@ resource "local_file" "kubeconfig" {
   filename = local.kubeconfig_location
   content  = data.http.kubeconfig.response_body
 }
+
+output "kubeconfig_file" {
+  value = local_file.kubeconfig.filename
+}
