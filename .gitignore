@@ -42,12 +42,10 @@ override.tf.json
 
 **/.vscode/*
 waitfornext/garbage.txt
-terragrunt.hcl*
 params.yaml
 .sops.yaml
 backend.tf
 ef.*.demo.yaml
-!gitops-lab/terragrunt.hcl
 envconfig.demo.yaml
 tf_output_vars.yaml
 gitops_lab_vars.demo.yaml
