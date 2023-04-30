@@ -1,6 +1,6 @@
 data "http" "kubeconfig" {
   method = "POST"
-  url    = format("https://%s.console.ves.volterra.io/api/web/namespaces/%s/api_credentials", var.namespace, var.xc_tenant, var.site_name)
+  url    = format("https://%s.console.ves.volterra.io/api/web/namespaces/%s/api_credentials", var.xc_tenant, var.namespace)
   request_headers = {
     Accept        = "application/json"
     Authorization = format("APIToken %s", var.volterra_token)
@@ -23,7 +23,7 @@ locals {
 }
 resource "local_file" "kubeconfig" {
   filename = local.kubeconfig_location
-  content  = data.http.kubeconfig.response_body
+  content  = base64decode(jsondecode(data.http.kubeconfig.response_body).data)
 }
 
 output "kubeconfig_file" {

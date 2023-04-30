@@ -1,12 +1,9 @@
 variable namespace {
     type = string
 }
-variable projectPrefix {
+variable project_prefix {
     type = string
 }
 variable useremail {
-    type = string
-}
-variable virtual_site_name {
     type = string
 }

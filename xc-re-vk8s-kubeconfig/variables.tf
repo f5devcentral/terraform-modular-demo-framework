@@ -5,10 +5,12 @@ variable "xc_tenant" {
 
 variable "site_name" {
   type        = string
-  description = "Your F5 XC AppStack site name"
+  description = "Your F5 XC vk8s site name"
 }
 
-variable "volterra_token" {
-  type        = string
-  description = "Your F5 XC API token"
+variable "namespace" {
+  type = string
+}
+variable volterra_token {
+  type = string
 }

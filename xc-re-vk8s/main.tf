@@ -1,14 +1,14 @@
 resource "volterra_virtual_k8s" "vk8s" {
-  name = format("%s-vk8s", var.projectPrefix)
+  name = format("%s-vk8s", var.project_prefix)
   namespace = var.namespace
   vsite_refs {
-    name      = var.virtual_site_name
+    name      = "us-ves-io-re"
     namespace = "shared"
   }
 }
 
 resource "volterra_k8s_cluster_role_binding" "bind" {
-  name      = format("%s-vk8s-cluster-rolebinding", var.projectPrefix)
+  name      = format("%s-vk8s-cluster-rolebinding", var.project_prefix)
   namespace = "system"
 
   k8s_cluster_role {
@@ -24,7 +24,7 @@ resource "volterra_k8s_cluster_role_binding" "bind" {
 }
 
 resource "volterra_k8s_cluster_role" "role" {
-  name      = format("%s-vk8s-cluster-role", var.projectPrefix)
+  name      = format("%s-vk8s-cluster-role", var.project_prefix)
   namespace = "system"
 
   // One of the arguments from this list "policy_rule_list k8s_cluster_role_selector yaml" must be set
@@ -43,7 +43,7 @@ resource "volterra_k8s_cluster_role" "role" {
 }
 
 resource "volterra_k8s_cluster" "cluster" {
-  name      = format("%s-k8s-cluster", var.projectPrefix)
+  name      = format("%s-k8s-cluster", var.project_prefix)
   namespace = "system"
 
   no_cluster_wide_apps              = true
@@ -93,7 +93,7 @@ resource "volterra_k8s_cluster" "cluster" {
   no_insecure_registries       = true
 
   local_access_config {
-    local_domain = format("%s.local", var.projectPrefix)
+    local_domain = format("%s.local", var.project_prefix)
     default_port = true
   }
   use_default_psp = true
