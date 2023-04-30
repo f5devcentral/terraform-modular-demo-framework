@@ -7,7 +7,7 @@ include "azure" {
 }
 
 terraform {
-  source = "github.com/piyerf5/cluster-microservices-demo.git?ref=v0.0.1"
+  source = "github.com/piyerf5/cluster-microservices-demo.git?ref=v0.0.1//"
 }
 
 dependencies {

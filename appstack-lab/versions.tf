@@ -5,5 +5,9 @@ terraform {
       source  = "volterraedge/volterra"
       version = "0.11.21"
     }
+    kubectl = {
+      source  = "gavinbunney/kubectl"
+      version = "1.14.0"
+    }
   }
 }

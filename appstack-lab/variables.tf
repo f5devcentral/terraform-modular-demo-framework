@@ -1,11 +1,11 @@
-variable "k8s_cluster_name" {
-  type        = string
-  description = "The name of the Managed K8s cluster"
-}
-
-variable "site_name" {
+variable "mk8s_site_name" {
   type        = string
   description = "Your F5 XC AppStack site name"
+}
+
+variable "vk8s_site_name" {
+  type        = string
+  description = "Your F5 XC VirtualK8s site object name"
 }
 
 variable "volterra_token" {
@@ -45,7 +45,18 @@ variable "project_prefix" {
   description = "This value is inserted at the beginning of each XC object (alpha-numeric, no special character)"
 }
 
-variable "kubeconfig_file" {
-  type        = string
-  description = "The file path of the kubeconfig to use"
+variable "mk8s_kubeconfig_context" {
+  type = string
+}
+
+variable "mk8s_kubeconfig_file" {
+  type = string
+}
+
+variable "vk8s_kubeconfig_context" {
+  type = string
+}
+
+variable "vk8s_kubeconfig_file" {
+  type = string
 }

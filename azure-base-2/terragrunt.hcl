@@ -5,7 +5,7 @@ include "azure" {
   path = find_in_parent_folders("azure.hcl")
 }
 terraform {
-  source = "github.com/piyerf5/terraform-f5xc-azure-base.git?ref=v0.1.0"
+  source = "github.com/piyerf5/terraform-f5xc-azure-base.git?ref=v0.1.0//"
 }
 
 inputs = {

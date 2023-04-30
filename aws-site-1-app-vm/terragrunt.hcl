@@ -7,7 +7,7 @@ include "aws" {
 }
 
 terraform {
-  source = "github.com/piyerf5/terraform-f5xc-aws-app-vm.git?ref=v0.1.0"
+  source = "github.com/piyerf5/terraform-f5xc-aws-app-vm.git?ref=v0.1.0//"
   before_hook "pre-check" {
       commands = ["apply","plan"]
       execute  = ["./pre-check.sh"]

@@ -4,7 +4,7 @@ resource "volterra_origin_pool" "op" {
 
   for_each = local.apps
 
-  name        = format("%s-xcop-%s-%s", local.project_prefix, each.key, local.build_suffix)
+  name        = format("%s", each.key)
   namespace   = var.namespace
   description = format("Origin pool pointing to origin server %s", each.value.k8s_service)
   origin_servers {
@@ -41,7 +41,7 @@ resource "volterra_http_loadbalancer" "lb_https" {
 
   for_each = local.apps
 
-  name                            = format("%s-xclb-%s-%s", local.project_prefix, each.key, local.build_suffix)
+  name                            = format("%s", each.key)
   namespace                       = var.namespace
   description                     = format("HTTPS loadbalancer object for %s origin server", local.project_prefix)
   domains                         = [each.value.domain]

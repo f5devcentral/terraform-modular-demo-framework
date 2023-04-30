@@ -2,7 +2,7 @@ resource "volterra_virtual_k8s" "vk8s" {
   name = format("%s-vk8s", var.project_prefix)
   namespace = var.namespace
   vsite_refs {
-    name      = "us-ves-io-re"
+    name      = "us-re-all"
     namespace = "shared"
   }
 }

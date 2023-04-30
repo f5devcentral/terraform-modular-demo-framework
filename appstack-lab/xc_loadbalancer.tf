@@ -1,24 +1,28 @@
+provider "volterra" {
+}
+
 # Create XC LB config
 
 resource "volterra_origin_pool" "op" {
 
-  for_each = local.apps
+  for_each = local.brewz_services
 
-  name        = format("%s-xcop-%s-%s", local.project_prefix, each.key, local.build_suffix)
-  namespace   = var.namespace
+  name        = format("%s", each.key)
+  namespace   = each.value.k8s_namespace
   description = format("Origin pool pointing to origin server %s", each.value.k8s_service)
   origin_servers {
     k8s_service {
-      service_name = each.value.k8s_service
+      service_name = format("%s.%s", each.value.k8s_service, each.value.k8s_namespace)
 
       site_locator {
         site {
           tenant    = local.xc_tenant_full
           namespace = "system"
-          name      = var.site_name
+          name      = each.value.site_name
         }
       }
-      outside_network = true
+      outside_network = each.value.outside_network
+      vk8s_networks = each.value.vk8s_networks
     }
   }
 
@@ -38,13 +42,10 @@ resource "volterra_origin_pool" "op" {
 }
 
 resource "volterra_http_loadbalancer" "lb_https" {
-
-  for_each = local.apps
-
-  name                            = format("%s-xclb-%s-%s", local.project_prefix, each.key, local.build_suffix)
+  name                            = format("%s", var.brewz_host_prefix)
   namespace                       = var.namespace
   description                     = format("HTTPS loadbalancer object for %s origin server", local.project_prefix)
-  domains                         = [each.value.domain]
+  domains                         = [local.brewz_fqdn]
   advertise_on_public_default_vip = false
   advertise_on_public {
     public_ip {
@@ -52,26 +53,22 @@ resource "volterra_http_loadbalancer" "lb_https" {
       namespace = "shared"
     }
   }
-  default_route_pools {
-    pool {
-      name      = volterra_origin_pool.op[each.key].name
-      namespace = var.namespace
-    }
-    weight = 1
-  }
-  routes {
-    simple_route {
-      http_method          = "ANY"
-      disable_host_rewrite = true
-      path {
-        prefix = "/"
-      }
-      origin_pools {
-        pool {
-          name      = volterra_origin_pool.op[each.key].name
-          namespace = var.namespace
+  dynamic "routes" {
+    for_each = local.brewz_routes
+    content {
+      simple_route {
+        http_method          = routes.value.http_method
+        disable_host_rewrite = true
+        path {
+          prefix = routes.key
         }
-        weight = 1
+        origin_pools {
+          pool {
+            name      = format("%s", volterra_origin_pool.op[routes.value.k8s_service].name)
+            namespace = routes.value.k8s_namespace
+          }
+          weight = 1
+        }
       }
     }
   }

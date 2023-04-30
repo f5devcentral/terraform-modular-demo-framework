@@ -5,7 +5,7 @@ include "aws" {
   path = find_in_parent_folders("aws.hcl")
 }
 terraform {
-  source = "github.com/piyerf5/terraform-f5xc-aws-vpc-site.git?ref=v0.1.0"
+  source = "github.com/piyerf5/terraform-f5xc-aws-vpc-site.git?ref=v0.1.0//"
 }
 
 dependencies {

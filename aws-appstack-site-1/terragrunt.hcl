@@ -17,7 +17,7 @@ include "appstack-lab" {
 }
 
 terraform {
-  source = "github.com/piyerf5/terraform-f5xc-aws-appstack-site.git"
+  source = "github.com/piyerf5/terraform-f5xc-aws-appstack-site.git//"
 }
 
 dependencies {
