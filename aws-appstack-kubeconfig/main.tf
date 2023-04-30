@@ -11,7 +11,7 @@ data "http" "kubeconfig" {
   })
 }
 locals {
-  kubeconfig_location = "/home/ubuntu/.kube/config"
+  kubeconfig_location = var.kubeconfig_path
 }
 resource "local_file" "kubeconfig" {
   filename = local.kubeconfig_location

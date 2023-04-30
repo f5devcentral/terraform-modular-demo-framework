@@ -12,3 +12,9 @@ variable "volterra_token" {
   type        = string
   description = "Your F5 XC API token"
 }
+
+variable "kubeconfig_path" {
+  type        = string
+  description = "Path to your kubeconfig file"
+  default     = "/home/ubuntu/.kube/config"
+}
