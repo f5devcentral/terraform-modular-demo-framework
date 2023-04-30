@@ -75,16 +75,16 @@ locals {
       http_method   = "ANY"
     },
     "4" = {
-      path = "/api"
-      k8s_service   = local.brewz_services.api.k8s_service
-      k8s_namespace = local.brewz_services.api.k8s_namespace
-      http_method   = "ANY"
-    },
-    "5" = {
       path = "/images"
       k8s_service   = local.brewz_services.api.k8s_service
       k8s_namespace = local.brewz_services.api.k8s_namespace
       http_method   = "GET"
+    },
+    "5" = {
+      path = "/api"
+      k8s_service   = local.brewz_services.api.k8s_service
+      k8s_namespace = local.brewz_services.api.k8s_namespace
+      http_method   = "ANY"
     },
     "6" = {
       path = "/"
