@@ -15,11 +15,6 @@ variable "nginx_jwt" {
   description = "The file path to the NGINX JWT file"
 }
 
-variable "k8s_cluster_name" {
-  type        = string
-  description = "The name of the Managed K8s cluster"
-}
-
 variable "site_name" {
   type        = string
   description = "Your F5 XC AppStack site name"

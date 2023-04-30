@@ -12,8 +12,12 @@ include "gitops-lab" {
   path = find_in_parent_folders("gitops-lab.hcl")
 }
 
+include "appstack-lab" {
+  path = find_in_parent_folders("appstack-lab.hcl")
+}
+
 terraform {
-  source = "github.com/piyerf5/terraform-f5xc-aws-appstack-site.git"
+  source = "github.com/piyerf5/terraform-f5xc-aws-appstack-site.git//"
 }
 
 dependencies {

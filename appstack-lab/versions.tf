@@ -5,13 +5,9 @@ terraform {
       source  = "volterraedge/volterra"
       version = "0.11.21"
     }
-    random = {
-      source  = "hashicorp/random"
-      version = "3.4.3"
-    }
-    pkcs12 = {
-      source  = "chilicat/pkcs12"
-      version = "~> 0.0"
+    kubectl = {
+      source  = "gavinbunney/kubectl"
+      version = "1.14.0"
     }
   }
 }

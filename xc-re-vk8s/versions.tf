@@ -5,6 +5,10 @@ terraform {
       source  = "volterraedge/volterra"
       version = "0.11.21"
     }
+    tfe = {
+      source  = "hashicorp/tfe"
+      version = "0.42.0"
+    }
     random = {
       source  = "hashicorp/random"
       version = "3.4.3"
