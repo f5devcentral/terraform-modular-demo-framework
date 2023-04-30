@@ -15,14 +15,26 @@ resource "volterra_origin_pool" "op" {
       service_name = format("%s.%s", each.value.k8s_service, each.value.k8s_namespace)
 
       site_locator {
-        site {
-          tenant    = local.xc_tenant_full
-          namespace = "system"
-          name      = each.value.site_name
+        dynamic "site" {
+          for_each = !each.value.vk8s_networks ? [1] : []
+          content {
+            tenant    = local.xc_tenant_full
+            namespace = "system"
+            name      = var.mk8s_site_name
+          }
+        }
+
+        dynamic "virtual_site" {
+          for_each = each.value.vk8s_networks ? [1] : []
+          content {
+            tenant    = local.xc_tenant_full
+            namespace = var.vsite_ref_namespace
+            name      = var.vsite_ref_site_name
+          }
         }
       }
       outside_network = each.value.outside_network
-      vk8s_networks = each.value.vk8s_networks
+      vk8s_networks   = each.value.vk8s_networks
     }
   }
 
@@ -60,7 +72,7 @@ resource "volterra_http_loadbalancer" "lb_https" {
         http_method          = routes.value.http_method
         disable_host_rewrite = true
         path {
-          prefix = routes.key
+          prefix = routes.value.path
         }
         origin_pools {
           pool {

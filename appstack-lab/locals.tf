@@ -18,7 +18,6 @@ locals {
       k8s_service_tls = false
       k8s_namespace   = var.namespace
       k8s_port        = 80
-      site_name       = var.mk8s_site_name
       outside_network = true
       vk8s_networks   = false
     },
@@ -27,7 +26,6 @@ locals {
       k8s_service_tls = false
       k8s_namespace   = var.namespace
       k8s_port        = 8000
-      site_name       = var.mk8s_site_name
       outside_network = true
       vk8s_networks   = false
     },
@@ -36,7 +34,6 @@ locals {
       k8s_service_tls = false
       k8s_namespace   = var.namespace
       k8s_port        = 8003
-      site_name       = var.mk8s_site_name
       outside_network = true
       vk8s_networks   = false
     },
@@ -45,7 +42,6 @@ locals {
       k8s_service_tls = false
       k8s_namespace   = var.namespace
       k8s_port        = 8001
-      site_name       = var.vk8s_site_name
       outside_network = false
       vk8s_networks   = true
     },
@@ -54,39 +50,44 @@ locals {
       k8s_service_tls = false
       k8s_namespace   = var.namespace
       k8s_port        = 8002
-      site_name       = var.vk8s_site_name
       outside_network = false
       vk8s_networks   = true
     }
   }
 
   brewz_routes = {
-    "/recommendations" = {
+    "1" = {
+      path = "/api/recommendations"
       k8s_service   = local.brewz_services.recommendations.k8s_service
       k8s_namespace = local.brewz_services.recommendations.k8s_namespace
       http_method   = "ANY"
     },
-    "/inventory" = {
+    "2" = {
+      path = "/api/inventory"
       k8s_service   = local.brewz_services.inventory.k8s_service
       k8s_namespace = local.brewz_services.inventory.k8s_namespace
       http_method   = "ANY"
     },
-    "/checkout" = {
+    "3" = {
+      path = "/checkout"
       k8s_service   = local.brewz_services.checkout.k8s_service
       k8s_namespace = local.brewz_services.checkout.k8s_namespace
       http_method   = "ANY"
     },
-    "/api" = {
+    "4" = {
+      path = "/api"
       k8s_service   = local.brewz_services.api.k8s_service
       k8s_namespace = local.brewz_services.api.k8s_namespace
       http_method   = "ANY"
     },
-    "/images" = {
+    "5" = {
+      path = "/images"
       k8s_service   = local.brewz_services.api.k8s_service
       k8s_namespace = local.brewz_services.api.k8s_namespace
       http_method   = "GET"
     },
-    "/" = {
+    "6" = {
+      path = "/"
       k8s_service   = local.brewz_services.spa.k8s_service
       k8s_namespace = local.brewz_services.spa.k8s_namespace
       http_method   = "ANY"

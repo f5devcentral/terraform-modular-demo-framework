@@ -60,3 +60,13 @@ variable "vk8s_kubeconfig_context" {
 variable "vk8s_kubeconfig_file" {
   type = string
 }
+
+variable "vsite_ref_site_name" {
+  type        = string
+  description = "The virtual site reference for vk8s"
+}
+
+variable "vsite_ref_namespace" {
+  type        = string
+  description = "The namespace reference for vk8s"
+}
