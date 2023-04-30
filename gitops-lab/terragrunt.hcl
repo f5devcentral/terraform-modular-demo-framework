@@ -18,7 +18,7 @@ terraform {
 }
 
 dependencies {
-  paths = ["../aws-appstack-kubeconfig"]
+  paths = ["../aws-appstack-kubeconfig", "../aws-appstack-site-1"]
 }
 
 dependency "xc_site" {
