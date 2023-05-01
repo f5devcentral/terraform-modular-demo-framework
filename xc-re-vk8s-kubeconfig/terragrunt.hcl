@@ -31,5 +31,5 @@ terraform {
 }
 
 inputs = {
-  site_name = dependency.xc_site.outputs.site_name
+  site_name = dependency.xc_site.outputs.vk8s_site_name
 }
