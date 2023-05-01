@@ -7,7 +7,7 @@ resource "volterra_origin_pool" "op" {
 
   for_each = local.brewz_services
 
-  name        = format("%s", each.key)
+  name        = each.key
   namespace   = each.value.k8s_namespace
   description = format("Origin pool pointing to origin server %s", each.value.k8s_service)
   origin_servers {
@@ -54,7 +54,7 @@ resource "volterra_origin_pool" "op" {
 }
 
 resource "volterra_http_loadbalancer" "lb_https" {
-  name                            = format("%s", var.brewz_host_prefix)
+  name                            = var.brewz_host_prefix
   namespace                       = var.namespace
   description                     = format("HTTPS loadbalancer object for %s origin server", local.project_prefix)
   domains                         = [local.brewz_fqdn]

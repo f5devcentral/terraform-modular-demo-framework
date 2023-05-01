@@ -20,7 +20,7 @@ data "http" "get_public_ips" {
 }
 
 data "volterra_http_loadbalancer_state" "argocd_lb_state" {
-  name       = format("%s-xclb-%s-%s", local.project_prefix, "argocd", local.build_suffix)
+  name       = "argocd"
   namespace  = var.namespace
   depends_on = [volterra_http_loadbalancer.lb_https]
 }
