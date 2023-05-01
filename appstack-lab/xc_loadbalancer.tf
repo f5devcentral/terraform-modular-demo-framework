@@ -28,8 +28,8 @@ resource "volterra_origin_pool" "op" {
           for_each = each.value.vk8s_networks ? [1] : []
           content {
             tenant    = local.xc_tenant_full
-            namespace = var.vsite_ref_namespace
-            name      = var.vsite_ref_site_name
+            namespace = var.virtual_site_namespace
+            name      = var.virtual_site_name
           }
         }
       }

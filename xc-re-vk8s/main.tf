@@ -1,9 +1,23 @@
+resource "random_id" "index" {
+  byte_length = 2
+}
+
+resource "volterra_virtual_site" "virtual_site" {
+  name      = format("%s-vs", var.project_prefix)
+  namespace = var.namespace
+
+  site_selector {
+    expressions = local.site_selector
+  }
+  site_type = "REGIONAL_EDGE"
+}
+
 resource "volterra_virtual_k8s" "vk8s" {
   name      = format("%s-vk8s", var.project_prefix)
   namespace = var.namespace
   vsite_refs {
-    name      = var.vsite_ref_site_name
-    namespace = var.vsite_ref_namespace
+    name      = volterra_virtual_site.virtual_site.name
+    namespace = volterra_virtual_site.virtual_site.namespace
   }
 }
 

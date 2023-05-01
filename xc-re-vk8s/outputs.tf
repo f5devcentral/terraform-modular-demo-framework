@@ -1,15 +1,11 @@
-output "site_name" {
-  value = volterra_virtual_k8s.vk8s.name
+output "random_re_site" {
+  value = local.random_re_site
 }
 
-output "namespace" {
-  value = volterra_virtual_k8s.vk8s.namespace
+output "virtual_site_name" {
+  value = volterra_virtual_site.virtual_site.name
 }
 
-output "vsite_ref_site_name" {
-  value = volterra_virtual_k8s.vk8s.vsite_refs[0].name
-}
-
-output "vsite_ref_namespace" {
-  value = volterra_virtual_k8s.vk8s.vsite_refs[0].namespace
+output "virtual_site_namespace" {
+  value = volterra_virtual_site.virtual_site.namespace
 }

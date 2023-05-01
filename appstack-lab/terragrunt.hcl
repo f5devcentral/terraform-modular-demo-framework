@@ -44,11 +44,13 @@ dependency "vk8s_get_kubeconfig" {
 
 inputs = {
   instance_suffix         = "1"
+
   mk8s_site_type          = dependency.mk8s_site.outputs.site_type
   mk8s_site_name          = dependency.mk8s_site.outputs.site_name
-  vk8s_site_name          = dependency.vk8s_site.outputs.site_name
-  vsite_ref_site_name     = dependency.vk8s_site.outputs.vsite_ref_site_name
-  vsite_ref_namespace     = dependency.vk8s_site.outputs.vsite_ref_namespace
+
+  virtual_site_name     = dependency.vk8s_site.outputs.virtual_site_name
+  virtual_site_namespace     = dependency.vk8s_site.outputs.virtual_site_namespace
+
   mk8s_kubeconfig_file    = dependency.mk8s_get_kubeconfig.outputs.kubeconfig_file
   vk8s_kubeconfig_file    = dependency.vk8s_get_kubeconfig.outputs.kubeconfig_file
   mk8s_kubeconfig_context = dependency.mk8s_get_kubeconfig.outputs.site_name

@@ -3,9 +3,14 @@ variable "mk8s_site_name" {
   description = "Your F5 XC AppStack site name"
 }
 
-variable "vk8s_site_name" {
+variable "virtual_site_name" {
   type        = string
-  description = "Your F5 XC VirtualK8s site object name"
+  description = "The virtual site reference for vk8s"
+}
+
+variable "virtual_site_namespace" {
+  type        = string
+  description = "The namespace reference for vk8s"
 }
 
 variable "volterra_token" {
@@ -61,12 +66,3 @@ variable "vk8s_kubeconfig_file" {
   type = string
 }
 
-variable "vsite_ref_site_name" {
-  type        = string
-  description = "The virtual site reference for vk8s"
-}
-
-variable "vsite_ref_namespace" {
-  type        = string
-  description = "The namespace reference for vk8s"
-}
