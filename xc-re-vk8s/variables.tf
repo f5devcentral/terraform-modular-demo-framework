@@ -14,7 +14,7 @@ variable "vsite_ref_site_name" {
   type        = string
   description = "The virtual site reference for vk8s"
   #   default     = "us-re-all"
-  default = "ves-io-all-res"
+  default = "pki-test"
 }
 
 variable "vsite_ref_namespace" {

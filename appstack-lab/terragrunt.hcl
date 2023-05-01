@@ -10,6 +10,11 @@ include "gitops-lab" {
   path = find_in_parent_folders("appstack-lab.hcl")
 }
 
+include "brewz" {
+  path = find_in_parent_folders("brewz.hcl")
+}
+
+
 terraform {
   before_hook "pre-check" {
     commands = ["apply", "plan"]
