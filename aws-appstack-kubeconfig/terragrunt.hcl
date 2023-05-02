@@ -31,4 +31,5 @@ terraform {
 
 inputs = {
   site_name = dependency.xc_site.outputs.site_name
+  site_type = dependency.xc_site.outputs.site_type
 }
