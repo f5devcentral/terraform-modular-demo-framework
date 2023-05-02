@@ -3,8 +3,8 @@
 # Check that the kubernetes API is ready to accept commands before creating workload resources
 #
 echo "site name: $TF_VAR_site_name"
-echo "kubeconfig file: $TF_VAR_kubeconfig_file"
 KUBECONFIG=$1
+echo "kubeconfig file: $KUBECONFIG"
 
 for x in `seq 1 120`; do
    state=$(kubectl auth can-i create namespace --all-namespaces)
