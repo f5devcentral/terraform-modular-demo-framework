@@ -5,7 +5,7 @@
 echo "site type: $TF_VAR_site_type"
 echo "site name: $TF_VAR_site_name"
 echo "namespace: $TF_VAR_namespace"
-echo "vk8sname:"
+echo "vk8sname:" $1
 
 URL="$VOLT_API_URL/config/namespaces/$TF_VAR_namespace/virtual_k8ss/$1-vk8s?response_format=GET_RSP_FORMAT_DEFAULT"
 # echo $URL

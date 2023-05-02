@@ -13,7 +13,7 @@ include "gitops-lab" {
 terraform {
   before_hook "pre-check" {
     commands = ["apply", "plan"]
-    execute  = ["./pre-check.sh"]
+    execute  = ["./pre-check.sh", "${var.kubeconfig_file}"]
   }
 }
 
