@@ -3,11 +3,12 @@
 # Check that the kubernetes API is ready to accept commands before creating workload resources
 #
 echo "site name: $TF_VAR_site_name"
-KUBECONFIG=$1
+export KUBECONFIG=$1
 echo "kubeconfig file: $KUBECONFIG"
 
 for x in `seq 1 120`; do
    state=$(kubectl auth can-i create namespace --all-namespaces)
+   echo "state = $state"
 if [ "$state" = "yes" ]; then
    echo "ONLINE: $TF_VAR_site_name cluster at $KUBECONFIG is ready to accept commands.  Safe to proceed. [$x minutes elapsed]"
    exit 0
