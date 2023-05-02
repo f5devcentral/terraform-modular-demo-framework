@@ -22,6 +22,13 @@ dependency "xc_site" {
   config_path = "../aws-appstack-site-1"
 }
 
+terraform {
+  before_hook "pre-check" {
+    commands = ["apply", "plan"]
+    execute  = ["./pre-check.sh"]
+  }
+}
+
 inputs = {
   site_name = dependency.xc_site.outputs.site_name
 }
