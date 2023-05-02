@@ -1,21 +1,22 @@
 #!/bin/bash
 #
-# Check that site is online before creating workload resources
+# Check that the kubernetes API is ready to accept commands before creating workload resources
 #
-echo "site type: $TF_VAR_site_type"
 echo "site name: $TF_VAR_site_name"
-
+export KUBECONFIG=$1
+echo "kubeconfig file: $KUBECONFIG"
 
 for x in `seq 1 120`; do
-    site_state=$(curl --location --request GET $VOLT_API_URL/config/namespaces/system/$TF_VAR_site_type/$TF_VAR_site_name  -H "Authorization: APIToken $VOLTERRA_TOKEN" -H "content-type: application/json" -s  |jq -r .spec.site_state)
-if [ "$site_state" = "ONLINE" ]; then
-   echo "ONLINE: $TF_VAR_site_name is online.  Safe to proceed. [$x minutes elapsed]"
+   state=$(kubectl auth can-i create namespace --all-namespaces)
+   echo "state = $state"
+if [ "$state" = "yes" ]; then
+   echo "ONLINE: $TF_VAR_site_name cluster at $KUBECONFIG is ready to accept commands.  Safe to proceed. [$x minutes elapsed]"
    exit 0
 else
-    echo "$site_state: wait for $TF_VAR_site_name to be ONLINE before proceeding.  [$x minutes elapsed]"
+    echo "$state: wait for $TF_VAR_site_name cluster at $KUBECONFIG to be ready to accept commands before proceeding.  [$x minutes elapsed]"
     #exit 1
-fi    
+fi
 sleep 60;
 done;
-echo "$site_state: wait for $TF_VAR_site_name to be ONLINE before proceeding; timed out after 120 minutes"
+echo "$state: wait for $KUBECONFIG cluster at to be ready to accept commands before proceeding; timed out after 120 minutes"
 exit 1;

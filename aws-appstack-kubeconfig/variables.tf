@@ -8,6 +8,11 @@ variable "site_name" {
   description = "Your F5 XC AppStack site name"
 }
 
+variable "site_type" {
+  type        = string
+  description = "Your F5 XC AppStack site type"
+}
+
 variable "volterra_token" {
   type        = string
   description = "Your F5 XC API token"
