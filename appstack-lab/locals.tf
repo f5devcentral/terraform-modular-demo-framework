@@ -69,7 +69,7 @@ locals {
       http_method   = "ANY"
     },
     "3" = {
-      path = "/checkout"
+      path = "/api/order"
       k8s_service   = local.brewz_services.checkout.k8s_service
       k8s_namespace = local.brewz_services.checkout.k8s_namespace
       http_method   = "ANY"
