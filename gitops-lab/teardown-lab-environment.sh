@@ -13,4 +13,4 @@ fi
 cd ~/terraform-modular-demo-framework
 
 terragrunt run-all destroy --terragrunt-modules-that-include ./gitops-lab.hcl --terragrunt-non-interactive
-terragrunt run-all destroy --terragrunt-modules-that-include ./env-setup.hcl --terragrunt-non-interactive
+# terragrunt run-all destroy --terragrunt-modules-that-include ./env-setup.hcl --terragrunt-non-interactive
