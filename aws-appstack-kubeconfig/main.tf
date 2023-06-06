@@ -6,7 +6,7 @@ data "http" "kubeconfig" {
     Authorization = format("APIToken %s", var.volterra_token)
   }
   request_body = jsonencode({
-    expiration_timestamp = timeadd(timestamp(), "720h") # 30 days
+    expiration_timestamp = timeadd(timestamp(), "24h") # 1 day
     site                 = var.site_name
   })
 }
