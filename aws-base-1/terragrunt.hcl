@@ -21,7 +21,7 @@ include "appstack-lab" {
 }
 
 terraform {
-  source = "github.com/piyerf5/terraform-f5xc-aws-base.git?ref=v0.1.1//"
+  source = "github.com/f5devcentral/terraform-f5xc-aws-base.git?ref=v0.1.1//"
 }
 
 inputs = {
