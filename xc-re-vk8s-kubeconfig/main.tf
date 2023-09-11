@@ -8,7 +8,7 @@ data "http" "kubeconfig" {
   request_body = jsonencode({
     name            = var.site_name
     namespaces      = var.namespace
-    expiration_days = 30
+    expiration_days = 1
     spec = {
       type                  = "KUBE_CONFIG"
       users                 = []
